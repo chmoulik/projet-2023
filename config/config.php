@@ -1,13 +1,13 @@
 <?php
 
 /**
- * AUTOCHARGEMENT DES CLASSES
+ * AUTOCHARGEMENT DES CLASSES QUI SE RELIE SANS (DANS ?) DES INCLUED. 
  */
-spl_autoload_register(function($class) {
+spl_autoload_register(function ($class) {
 
-    foreach(['config/', 'src/controllers/', 'src/models/'] as $folder) {
+    foreach (['config/', 'src/controllers/', 'src/models/'] as $folder) {
         $file = '../' . $folder . $class . '.php';
-        if (file_exists( $file )) {
+        if (file_exists($file)) {
             require_once($file);
         }
     }
@@ -16,10 +16,14 @@ spl_autoload_register(function($class) {
 /**
  * GESTION DU ROUTEUR
  */
-$currentUrl = $_SERVER['REQUEST_URI'];                  // On récupère l'URI actuelle
+$currentUrl = $_SERVER['SCRIPT_NAME'];
+//REQUEST_URI moins sécuritaire !
+// On récupère l'URI actuelle
 
 $requestedRoute = ''; // Par défaut, page  d'accueil
 $urlExploded = explode('index.php', $currentUrl);
+// print_r($urlExploded);
+
 if (count($urlExploded) > 1) {
     $requestedRoute = $urlExploded[1]; // On récupère tout ce qu'il y a après index.php
     $requestedRoute = explode('?', $requestedRoute)[0]; // On retire les paramètres GET
@@ -34,7 +38,7 @@ $paths = array_keys($routes); // Liste des chemins déclarés
 /**
  * Si la route (testée sans ses params GET) n'existe pas dans les routes déclarées, erreur 404.
  */
-if (!in_array( $requestedRoute ,  $paths)) {
+if (!in_array($requestedRoute,  $paths)) {
 
     require_once PUBLIC_FOLDER  . '404.php';
     die;
@@ -45,8 +49,8 @@ if (!in_array( $requestedRoute ,  $paths)) {
  * Exemple: '' => ['AppController', 'index'] => on appelle AppController::index()
  */
 $foundMethod = $routes[$requestedRoute];
-$class = $foundMethod[0];
-$method = $foundMethod[1];
+$class = $foundMethod[0]; //  ['UserController'
+$method = $foundMethod[1]; //'add_user']
 
 // On appelle la méthode :
 $class::$method();
