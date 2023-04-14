@@ -20,4 +20,36 @@ class  Db
             die;
         }
     }
+
+
+
+    public static function prepare(string $request, array $values, bool $bool = false) // $bool = false par default, donc ici pas oubliger d'écrire false.
+    {
+        $prepare = self::getDb()->prepare($request);
+        $reponse = $prepare->execute($values);
+        if ($reponse) {
+            if ($bool == true) {
+                return $prepare->fetch(); // tout les champ d'une logne.
+            } else {
+                return $prepare->fetchAll(); // tout les champ et toutes les lignes, si false.
+            }
+        }
+    }
+
+
+
+    public static function prepareDelete(string $delete, string $values)
+    {
+        $prepare = self::getDb()->prepare($delete);
+        return $prepare->execute($values);
+    }
+
+
+
+
+    public static function query($requete)
+    {
+        $query = self::getDb()->query($requete);
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

@@ -5,39 +5,78 @@ class UserController
 {
 	public static function add_user()
 	{
-		echo "2- j'ecrit sur le fichiers UserController (qui est dans le dossier controllers, dans la class UserController ).
-		<br>
-		1- Apres avoir pris en 1er dans params.php (dans le dossier config) la route avec controller 'UserController'
-		et la methode (fonction) 'add_user'.  
-		<br>
-		3- Puis inclued sur:
-		 views/new_user/formulaire_add_user.php
-		 <br>";
+		$_SESSION['message'] = "";
 
-		if (!empty($_POST)) {
-
-			UserController::verifaction_formulaire($_POST);
-
-			if (empty($_SESSION["message"])) {
-				$user = new Users([
-					'first_name'		=>		strtolower(htmlentities($_POST["first_name"])),
-					'last_name'		=>		strtolower(htmlentities($_POST["last_name"])),
-					'email'		=>		strtolower(htmlentities($_POST["email"])),
-					'password'	=>		strtolower(htmlentities($_POST["password"])),
-				]);
-
-
-				$user->insert();
-
-				if (!empty($_POST["message"])) {
-					header("location:" . BASE_PATH . "new_user");
-					exit;
-				}
+		if (!empty($_POST) and isset($_POST)) {
+			if (empty($_POST['first_name']) or !isset($_POST['first_name'])) {
+				$_SESSION['message'] .= "Ecrire le prénom <br>";
 			}
+			if (empty($_POST['last_name']) or !isset($_POST['last_name'])) {
+				$_SESSION['message'] .= "Ecrire le nom <br>";
+			}
+			if (empty($_POST['email']) or !isset($_POST['email'])) {
+				$_SESSION['message'] .= "Ecrire le mail <br>";
+			}
+			if (empty($_POST['password']) or !isset($_POST['password'])) {
+				$_SESSION['message'] .= "Ecrire le mot de passe <br>";
+			}
+			if (isset($_SESSION['message']) and empty($_SESSION['message'])) {
+				User::insert();
+				$_SESSION['message'] .= "votre compte à bien été créé !";
+			}
+			print_r($_POST['first_name']);
+		}
+		include VIEWS . "/new_user/formulaireAdd-user.php";
+	}
+
+
+	public static function update_user()
+	{
+		$_SESSION['message'] = "";
+
+		if (!empty($_POST) and isset($_POST)) {
+			if (empty($_POST['first_name']) or !isset($_POST['first_name'])) {
+				$_SESSION['message'] .= "Ecrire le prénom <br>";
+			}
+			if (empty($_POST['last_name']) or !isset($_POST['last_name'])) {
+				$_SESSION['message'] .= "Ecrire le nom <br>";
+			}
+			if (empty($_POST['email']) or !isset($_POST['email'])) {
+				$_SESSION['message'] .= "Ecrire le mail <br>";
+			}
+			if (empty($_POST['password']) or !isset($_POST['password'])) {
+				$_SESSION['message'] .= "Ecrire le mot de passe <br>";
+			}
+			if (isset($_SESSION['message']) and empty($_SESSION['message'])) {
+				User::updateUser();
+				$_SESSION['message'] .= "le compte à bien été modifié !";
+			}
+			print_r($_POST['first_name']);
 		}
 
+		include VIEWS . "new_user/modification_utilisateur.php";
+	}
 
-		include("../params.php");
-		include VIEWS . "new_user/formulaire_add_user.php";
+
+
+	public static function delete_user()
+	{
+		if (isset($_GET["id"]) and (!empty($_GET["id"]))) {
+			if (User::deleteUser($_GET['id'])) {
+
+				$_SESSION['message'] .= "le compte à bien été supprimer !";
+			} else {
+				$_SESSION['message'] .= "Cette utilisateur n'existe pas";
+			}
+		}
+		header("Location:" . BASE_PATH . "/alluser");
+	}
+
+
+
+
+	public static function all_user()
+	{
+		include VIEWS . "new_user/allUser.php";
 	}
 }

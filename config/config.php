@@ -14,10 +14,9 @@ spl_autoload_register(function ($class) {
 });
 
 /**
- * GESTION DU ROUTEUR
+ * GESTION DU ROUTEUR 
  */
-$currentUrl = $_SERVER['SCRIPT_NAME'];
-//REQUEST_URI moins sécuritaire !
+$currentUrl = $_SERVER['REQUEST_URI'];
 // On récupère l'URI actuelle
 
 $requestedRoute = ''; // Par défaut, page  d'accueil
