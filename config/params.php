@@ -38,7 +38,7 @@ const COVER = '../../public/upload/';
 $routes = [
     ''                  =>  ['AppController', 'index'],
     '/ajout_utilisateur'     => ['UserController', 'add_user'],
-    '/modification_utilisateur' => ['UserController', 'updateUser'],
+    '/modification_utilisateur' => ['UserController', 'update_user'],
     '/alluser' => ['UserController', 'all_user'],
     '/supprimer' => ['UserController', 'delete_user']
     //le slash dans ('/add-user') est important pour l'URL.
