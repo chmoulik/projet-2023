@@ -22,7 +22,7 @@ class UserController
 			}
 			if (isset($_SESSION['message']) and empty($_SESSION['message'])) {
 				User::insert();
-				$_SESSION['message'] .= "votre compte à bien été créé !";
+				$_SESSION['message'] .= "Votre compte a bien été créé !";
 			}
 		}
 		include VIEWS . "/new_user/formulaireAdd-user.php";
@@ -48,32 +48,38 @@ class UserController
 			}
 			if (isset($_SESSION['message']) and empty($_SESSION['message'])) {
 				User::updateUser();
-				$_SESSION['message'] .= "le compte à bien été modifié !";
+				$_SESSION['message'] .= "Le compte a bien été modifié !";
 			}
 		}
 		include VIEWS . "new_user/modification_utilisateur.php";
 	}
 
 
-
 	public static function delete_user()
 	{
 		if (isset($_GET["id"]) and (!empty($_GET["id"]))) {
-			if (User::deleteUser($_GET['id'])) {
-
-				$_SESSION['message'] .= "le compte à bien été supprimer !";
-			} else {
-				$_SESSION['message'] .= "Cette utilisateur n'existe pas";
+			User::deleteUser($_GET['id']); {
+				$_SESSION['message'] .= "Le compte a bien été supprimé !";
 			}
+			//  else {
+			// 	$_SESSION['message'] .= "Cette utilisateur n'existe pas";
+			// }
 		}
-		header("Location:" . BASE_PATH . "/alluser");
+		header("Location:" . BASE_PATH2 . "/alluser");
 	}
-
-
 
 
 	public static function all_user()
 	{
 		include VIEWS . "new_user/allUser.php";
+	}
+
+
+
+
+	public static function connexionMambre()
+	{ {
+			User::connexion();
+		}
 	}
 }

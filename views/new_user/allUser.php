@@ -17,7 +17,16 @@ print_r($requete);
 </pre> -->
 
 
+
+
 <table class="table" data-toggle="table">
+    <br>
+    <br>
+    <br>
+    <?= isset($_SESSION["message"]) ? $_SESSION["message"] : "";
+    $_SESSION["message"] = "" ?>
+
+
     <thead class="thead-dark">
         <tr>
             <th scope="col">Id</th>
@@ -51,3 +60,8 @@ print_r($requete);
             </tr>
     </tbody>
 </table>
+
+
+<?php
+
+require(VIEWS . 'inc/footer.php');

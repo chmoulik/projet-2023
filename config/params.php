@@ -23,6 +23,7 @@ const CONFIG = [
  */
 const BASE_DIR = __DIR__ . '/../';
 const BASE_PATH = CONFIG['app']['projectBaseUrl'] . '/public/index.php/add-user' . "user";
+const BASE_PATH2 = CONFIG['app']['projectBaseUrl'] . '/index.php'; // BASE_PATH2 je l'ai ajouté. Es ok ???
 const PUBLIC_FOLDER = BASE_DIR . 'public/';
 const VIEWS = BASE_DIR . 'views/';
 const MODELS = BASE_DIR . 'src/models/';
@@ -40,6 +41,6 @@ $routes = [
     '/ajout_utilisateur'     => ['UserController', 'add_user'],
     '/modification_utilisateur' => ['UserController', 'update_user'],
     '/alluser' => ['UserController', 'all_user'],
-    '/supprimer' => ['UserController', 'delete_user']
-    //le slash dans ('/add-user') est important pour l'URL.
+    '/supprimer' => ['UserController', 'delete_user'],
+    '/connexion' => ['UserController', 'connexionMambre']    //le slash dans ('/add-user') est important pour l'URL.
 ];
