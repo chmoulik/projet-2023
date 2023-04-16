@@ -2,4 +2,4 @@
 
 Créer un site de E-commerce back et front.
 
-Il y'a du html, du css et du js php ainsi que du python.
+Il y'a du html, css, js, php ainsi que du python.

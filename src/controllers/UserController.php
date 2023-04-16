@@ -24,7 +24,6 @@ class UserController
 				User::insert();
 				$_SESSION['message'] .= "votre compte à bien été créé !";
 			}
-			print_r($_POST['first_name']);
 		}
 		include VIEWS . "/new_user/formulaireAdd-user.php";
 	}
@@ -51,9 +50,7 @@ class UserController
 				User::updateUser();
 				$_SESSION['message'] .= "le compte à bien été modifié !";
 			}
-			print_r($_POST['first_name']);
 		}
-
 		include VIEWS . "new_user/modification_utilisateur.php";
 	}
 

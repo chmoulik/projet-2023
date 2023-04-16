@@ -5,7 +5,7 @@ require(VIEWS . './inc/menu.php');
 ?>
 
 <h1>Nouveau utilisateur</h1>
-<form method="POST" action="allUser.php">
+<form method="POST" action="ajout_utilisateur">
 	<?= isset($_SESSION["message"]) ? $_SESSION["message"] : "";
 	$_SESSION["message"] = "";
 	?>
@@ -28,7 +28,6 @@ require(VIEWS . './inc/menu.php');
 				<input type="tel" id="phone" placeholder="Numéro de téléphone" name="phone">
 				<label for="phone">Numéro de téléphone</label>
 			</div>
-
 			<div>
 				<input type="adresse" id="adresse" placeholder="Adresse de livraison" name="adresse">
 				<label for="adresse">Adresse</label>

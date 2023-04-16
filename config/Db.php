@@ -29,7 +29,7 @@ class  Db
         $reponse = $prepare->execute($values);
         if ($reponse) {
             if ($bool == true) {
-                return $prepare->fetch(); // tout les champ d'une logne.
+                return $prepare->fetch(); // tout les champ d'une ligne, si true.
             } else {
                 return $prepare->fetchAll(); // tout les champ et toutes les lignes, si false.
             }
@@ -37,19 +37,22 @@ class  Db
     }
 
 
-
-    public static function prepareDelete(string $delete, string $values)
-    {
-        $prepare = self::getDb()->prepare($delete);
-        return $prepare->execute($values);
-    }
-
-
-
-
     public static function query($requete)
     {
         $query = self::getDb()->query($requete);
         return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
+
+    public static function prepareDelete(string $requete)
+    {
+        if (isset($_GET["action"])) {
+            if ($_GET["action"] == "delete") {
+                $requete = "DELETE  FROM user WHERE id = ? ";
+                $requetePreparee = self::getDb()->prepare($requete);
+                $reponse = $requetePreparee->execute([$_GET["id"]]);
+            }
+        }
     }
 }

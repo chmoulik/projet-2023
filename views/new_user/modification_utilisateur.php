@@ -40,7 +40,6 @@ $requete = Db::prepare("SELECT * FROM user WHERE id = ? ", [$_GET['id']], true);
 				<input type="tel" id="phone" placeholder="Numéro de téléphone" name="phone" value="<?= $requete['tel'] ?>">
 				<label for="phone">Numéro de téléphone</label>
 			</div>
-
 			<div>
 				<input type="adresse" id="adresse" placeholder="Adresse de livraison" name="adresse" value="<?= $requete['adresse'] ?>">
 				<label for="adresse">Adresse</label>
