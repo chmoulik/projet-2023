@@ -13,7 +13,7 @@ const CONFIG = [
     ],
     'app' => [
         'name' => 'projet_2023',
-        'projectBaseUrl' => 'http://localhost:8888/php/projet_2023/public' //= index/accueil
+        'projectBaseUrl' => 'http://localhost:8888/php/projet_2023' //= index/accueil
     ]
 ];
 
@@ -22,8 +22,7 @@ const CONFIG = [
  * Constantes pour accéder rapidement aux dossiers importants du MVC
  */
 const BASE_DIR = __DIR__ . '/../';
-const BASE_PATH = CONFIG['app']['projectBaseUrl'] . '/public/index.php/add-user' . "user";
-const BASE_PATH2 = CONFIG['app']['projectBaseUrl'] . '/index.php'; // BASE_PATH2 je l'ai ajouté. Es ok ???
+const BASE_PATH = CONFIG['app']['projectBaseUrl'] . '/public/index.php/';
 const PUBLIC_FOLDER = BASE_DIR . 'public/';
 const VIEWS = BASE_DIR . 'views/';
 const MODELS = BASE_DIR . 'src/models/';

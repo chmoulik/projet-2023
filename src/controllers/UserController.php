@@ -61,25 +61,13 @@ class UserController
 			User::deleteUser($_GET['id']); {
 				$_SESSION['message'] .= "Le compte a bien été supprimé !";
 			}
-			//  else {
-			// 	$_SESSION['message'] .= "Cette utilisateur n'existe pas";
-			// }
 		}
-		header("Location:" . BASE_PATH2 . "/alluser");
+		header("Location:" . BASE_PATH . "alluser");
 	}
 
 
 	public static function all_user()
 	{
 		include VIEWS . "new_user/allUser.php";
-	}
-
-
-
-
-	public static function connexionMambre()
-	{ {
-			User::connexion();
-		}
 	}
 }

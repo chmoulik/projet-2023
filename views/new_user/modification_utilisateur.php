@@ -5,7 +5,7 @@ require(VIEWS . './inc/menu.php');
 require(VIEWS . './inc/url.php');
 
 
-
+//modif user admin
 $requete = Db::prepare("SELECT * FROM user WHERE id = ? ", [$_GET['id']], true);
 
 

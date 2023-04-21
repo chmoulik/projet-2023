@@ -34,32 +34,4 @@ class User extends Db // Class User incluant un new PDO.
 		);
 		return $delete;
 	}
-
-
-
-
-	public static function connexion($email)
-	{
-		if ($_POST) {
-
-			$resultat = User::prepare("SELECT * FROM user WHERE email='$_POST[email]'", $email);
-			if ($resultat->rows != 0) {
-
-				$membre = $resultat->fetch_assoc();
-				if ($membre['password'] == $_POST['password']) {
-
-					foreach ($membre as $indice => $element) {
-						if ($indice != 'password') {
-							$_SESSION['user'][$indice] = $element;
-						}
-					}
-					// header("Location:" . BASE_PATH . "/profil.php");
-				} else {
-					$_SESSION['message'] .= "Erreur de mot de passe";
-				}
-			} else {
-				$_SESSION['message'] .= "Erreur de pseudo";
-			}
-		}
-	}
 }
