@@ -7,12 +7,15 @@ class UserController
 	{
 		$_SESSION['message'] = "";
 
-		if (!empty($_POST) and isset($_POST)) {
+		if (isset($_POST) and !empty($_POST)) {
 			if (empty($_POST['first_name']) or !isset($_POST['first_name'])) {
 				$_SESSION['message'] .= "Ecrire le prénom <br>";
 			}
 			if (empty($_POST['last_name']) or !isset($_POST['last_name'])) {
 				$_SESSION['message'] .= "Ecrire le nom <br>";
+			}
+			if (empty($_POST['login']) or !isset($_POST['login'])) {
+				$_SESSION['message'] .= "Ecrire le login <br>";
 			}
 			if (empty($_POST['email']) or !isset($_POST['email'])) {
 				$_SESSION['message'] .= "Ecrire le mail <br>";

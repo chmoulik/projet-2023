@@ -10,6 +10,3 @@
 </head>
 
 <body>
-    <nav>
-    </nav>
-    <div>

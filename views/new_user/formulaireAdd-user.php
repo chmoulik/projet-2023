@@ -20,6 +20,10 @@ require(VIEWS . './inc/menu.php');
 				<label for="first_name">Prénom</label>
 			</div>
 			<div>
+				<input type="text" id="login" placeholder="login" name="login">
+				<label for="login">Login</label>
+			</div>
+			<div>
 				<input type="email" id="email" placeholder="Mail" name="email">
 				<label for="email">Mail</label>
 			</div>

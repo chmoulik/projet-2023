@@ -2,14 +2,14 @@
 
 //faire ici les CRUD de user ! aussi des calcule / requete
 
-
-class User extends Db // Class User incluant un new PDO. 
+// Les requetes utilisateur 
+class User extends Db
 {
 	public static function insert() // Requete nouveau utilisateur.
 	{
 		$reponse = self::prepare(
-			"INSERT INTO `user` (last_name, first_name, email, password) VALUES (?,?,?,?)",
-			[$_POST['last_name'], $_POST['first_name'], $_POST['email'], $_POST['password']]
+			"INSERT INTO `user` (last_name, first_name, login, email, password) VALUES (?,?,?,?,?)",
+			[$_POST['last_name'], $_POST['first_name'], $_POST['login'], $_POST['email'], $_POST['password']]
 		);
 		return $reponse;
 	}

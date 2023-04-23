@@ -31,7 +31,7 @@ class  Db
             if ($bool == true) {
                 return $prepare->fetch(); // tout les champ d'une ligne, si true.
             } else {
-                return $prepare->fetchAll(); // tout les champ et toutes les lignes, si false.
+                return $prepare->fetchAll(); // tout les champs et toutes les lignes, si false.
             }
         }
     }
