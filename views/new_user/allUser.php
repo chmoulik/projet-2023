@@ -30,8 +30,8 @@ print_r($requete);
     <thead class="thead-dark">
         <tr>
             <th scope="col">Id</th>
-            <th scope="col">Prénom</th>
             <th scope="col">Nom</th>
+            <th scope="col">Prénom</th>
             <th scope="col">Login</th>
             <th scope="col">Mail</th>
             <th scope="col">Mot de passe</th>

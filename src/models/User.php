@@ -8,8 +8,15 @@ class User extends Db
 	public static function insert() // Requete nouveau utilisateur.
 	{
 		$reponse = self::prepare(
-			"INSERT INTO `user` (last_name, first_name, login, email, password) VALUES (?,?,?,?,?)",
-			[$_POST['last_name'], $_POST['first_name'], $_POST['login'], $_POST['email'], $_POST['password']]
+			"INSERT INTO `user` (last_name, 
+			first_name, login, email, password) VALUES (?,?,?,?,?)",
+			[
+				strtolower(htmlspecialchars($_POST["last_name"])),
+				strtolower(htmlspecialchars($_POST["first_name"])),
+				strtolower(htmlspecialchars($_POST["login"])),
+				strtolower(htmlspecialchars($_POST["email"])),
+				password_hash(htmlspecialchars($_POST["password"]), PASSWORD_DEFAULT)
+			]
 		);
 		return $reponse;
 	}
@@ -20,7 +27,14 @@ class User extends Db
 	{
 		$update = self::prepare(
 			"UPDATE user  SET first_name = ?, last_name = ?, login = ?, email = ?, password = ?  WHERE id = ? ",
-			[$_POST['first_name'], $_POST['last_name'], $_POST['login'], $_POST['email'], $_POST['password'], $_POST['id']]
+			[
+				strtolower(htmlspecialchars($_POST["last_name"])),
+				strtolower(htmlspecialchars($_POST["first_name"])),
+				strtolower(htmlspecialchars($_POST["login"])),
+				strtolower(htmlspecialchars($_POST["email"])),
+				password_hash(htmlspecialchars($_POST["password"]), PASSWORD_DEFAULT),
+				strtolower(htmlspecialchars($_POST['id'])),
+			]
 		);
 		return $update;
 	}

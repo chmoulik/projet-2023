@@ -21,8 +21,6 @@ class  Db
         }
     }
 
-
-
     public static function prepare(string $request, array $values, bool $bool = false) // $bool = false par default, donc ici pas oubliger d'écrire false.
     {
         $prepare = self::getDb()->prepare($request);
