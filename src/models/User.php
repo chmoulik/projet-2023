@@ -19,8 +19,8 @@ class User extends Db
 	public static function updateUser() // = Requete modification utilisateur.
 	{
 		$update = self::prepare(
-			"UPDATE user  SET first_name = ?, last_name = ?, email = ?, password = ?  WHERE id = ? ",
-			[$_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['password'], $_POST['id']]
+			"UPDATE user  SET first_name = ?, last_name = ?, login = ?, email = ?, password = ?  WHERE id = ? ",
+			[$_POST['first_name'], $_POST['last_name'], $_POST['login'], $_POST['email'], $_POST['password'], $_POST['id']]
 		);
 		return $update;
 	}

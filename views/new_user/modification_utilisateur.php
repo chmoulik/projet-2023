@@ -32,6 +32,10 @@ $requete = Db::prepare("SELECT * FROM user WHERE id = ? ", [$_GET['id']], true);
 				<label for="first_name">Prénom</label>
 			</div>
 			<div>
+				<input type="text" id="login" placeholder="Prénom" name="login" value=" <?= $requete["first_name"] ?>">
+				<label for="login">Login</label>
+			</div>
+			<div>
 				<input type="email" id="email" placeholder="Mail" name="email" value="<?= $requete['email'] ?>">
 				<label for="email">Mail</label>
 			</div>
