@@ -1,7 +1,8 @@
 <?php
 
+
 include(VIEWS . "./inc/header.php");
-// include(VIEWS . "./inc/menu.php");
+include(VIEWS . "./inc/menu.php");
 
 
 ?>
