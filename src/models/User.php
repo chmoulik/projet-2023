@@ -15,7 +15,7 @@ class User extends Db
 				strtolower(htmlspecialchars($_POST["first_name"])),
 				strtolower(htmlspecialchars($_POST["login"])),
 				strtolower(htmlspecialchars($_POST["email"])),
-				password_hash(htmlspecialchars($_POST["password"]), PASSWORD_DEFAULT)
+				(htmlspecialchars($_POST["password"]))
 			]
 		);
 		return $reponse;

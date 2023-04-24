@@ -17,9 +17,10 @@ print_r($requete);
 </pre> -->
 
 
+<h1 class="text-center my-5">Liste des utilisateurs</h1>
+<!-- <div class="table-responsive-md"> -->
+<table class="table table-hover container ">
 
-
-<table class="table" data-toggle="table">
     <br>
     <br>
     <br>
@@ -27,9 +28,9 @@ print_r($requete);
     $_SESSION["message"] = "" ?>
 
 
-    <thead class="thead-dark">
+    <thead class="thead-white table-dark">
         <tr>
-            <th scope="col">Id</th>
+            <th scope=" col">Id</th>
             <th scope="col">Nom</th>
             <th scope="col">Prénom</th>
             <th scope="col">Login</th>
