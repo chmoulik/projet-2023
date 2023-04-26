@@ -1,5 +1,6 @@
 <?php
 
+require(VIEWS . 'inc/head.php');
 require(VIEWS . 'inc/header.php');
 require(VIEWS . './inc/menu.php');
 require(VIEWS . './inc/url.php');
@@ -10,12 +11,11 @@ $requete = Db::prepare("SELECT * FROM user WHERE id = ? ", [$_GET['id']], true);
 ?>
 
 <h1 class="text-center my-5">Modifer - update</h1>
-
-<?= isset($_SESSION["message"]) ? $_SESSION["message"] : "";
-$_SESSION["message"] = "" . '<br><br><br>';
-?>
-
 <form method="POST" action="" class="w-50 mx-auto">
+	<?= isset($_SESSION["message"]) ? $_SESSION["message"] : "";
+	$_SESSION["message"] = "" . '<br><br><br>';
+	?>
+	<br>
 	<div class="row g-3">
 		<!-- ici hedden cache l'id de l'utilisateur -->
 		<input type="hidden" name="id" value="<?= $_GET['id'] ?>">
@@ -47,9 +47,10 @@ $_SESSION["message"] = "" . '<br><br><br>';
 		<input type="password" value=" <?= $requete["password"] ?>" id="password" name="password" class="form-control" placeholder="Mot de passe" required>
 		<label for="password">Mot de passe</label>
 	</div>
+
 	<input class="btn btn-primary" type="submit" value="Modifier" name="submit">
 
-	<?= print_r($requete["login"]); ?>
+
 </form>
 
 

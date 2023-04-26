@@ -3,6 +3,8 @@
 
 class UserController
 {
+
+	// Inscription 
 	public static function add_user()
 	{
 		$_SESSION['message'] = "";
@@ -32,6 +34,9 @@ class UserController
 	}
 
 
+
+
+	// Modification information utilisateur.
 	public static function update_user()
 	{
 		$_SESSION['message'] = "";
@@ -61,6 +66,9 @@ class UserController
 	}
 
 
+
+
+	// Suprimer utilisteur (administrateur)
 	public static function delete_user()
 	{
 		if (isset($_GET["id"]) and (!empty($_GET["id"]))) {
@@ -72,8 +80,31 @@ class UserController
 	}
 
 
+
+
+
+	// Tout les utilisateurs (administrateur)
 	public static function all_user()
 	{
 		include VIEWS . "new_user/allUser.php";
+	}
+
+
+
+
+
+	// Connxeion membre 
+	public static function connexion_membre()
+	{
+		if (User::verifyUser()) {
+			User::requeteConnexion(); // à revoir le bon argument !
+		} else {
+		}
+
+		// return User::verifConnexion();
+
+
+
+		include VIEWS . "./new_user/connexion.php";
 	}
 }
