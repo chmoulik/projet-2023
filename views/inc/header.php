@@ -49,14 +49,14 @@ function isAdmin()
                         <a class="nav-link" href="<?= BASE_PATH ?>/profil">Profil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= BASE_PATH ?>connexion?action=deconnexion">Deconnexion</a>
+                        <a class="nav-link" href="<?= BASE_PATH ?>/connexion?action=deconnexion">Deconnexion</a>
                     </li>
                 <?php
                 }
                 if (isAdmin()) {
                 ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= BASE_PATH ?>/alluser">Liste utilisateur</a>
+                        <a class="nav-link" href="<?= BASE_PATH ?>/alluser">Liste utilisateurs</a>
                     </li>
                 <?php
                 }
@@ -65,7 +65,7 @@ function isAdmin()
             <?php
             if (isConnect()) {
             ?>
-                <p class="text-white m-0">Bonjour <?= ucfirst($_SESSION["user"]["prenom"]) ?></p>
+                <p class="text-white m-0">Bonjour <?= ucfirst($_SESSION["user"]["login"]) ?></p>
             <?php
             }
             ?>

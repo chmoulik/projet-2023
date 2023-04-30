@@ -6,7 +6,7 @@
 class User extends Db
 {
 	// Requete : nouveau utilisateur.
-	public static function insert() // Requete nouveau utilisateur.
+	public static function insert()
 	{
 		$reponse = self::prepare(
 			"INSERT INTO `user` (last_name, 
@@ -19,8 +19,13 @@ class User extends Db
 				password_hash(htmlspecialchars($_POST["password"]), PASSWORD_DEFAULT),
 			]
 		);
+		// $membre = self::prepare("SELECT * FROM membre WHERE login='$_POST[login]'",??? , true);
+		// if ($membre->rowCount() > 0) {
+		// 	$_SESSION["message"] .= "<div class='erreur'>Pseudo indisponible. Veuillez en choisir un autre.</div>";
+		// }
 		return $reponse;
 	}
+
 
 
 	// Requete : modification utilisateur.
@@ -78,19 +83,18 @@ class User extends Db
 	}
 
 	public static function verifyUser()
-	{ //  Si le user n'existe pas ou si il est vide
-		if (!isset($_POST["user"]) || empty($_POST["user"])) {
+	{ //  Si le user (login) n'existe pas ou si il est vide
+		if (!isset($_POST["user"]) or empty($_POST["user"])) {
 			$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
-			Veuillez remplir le champs login
+			Veuillez remplir votre login
 		</div>";
 		};
 		//  Si le password n'existe pas ou si il est vide
-		if (!isset($_POST["password"]) || empty($_POST["password"])) {
+		if (!isset($_POST["password"]) or empty($_POST["password"])) {
 			$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
-			Veuillez remplir le champs mot de passe
+			Veuillez remplir votre mot de passe
 		</div>";
 		}
-		// Si messsage d'erreur, redirection sur lui même (connextion)
 		if (!empty($_SESSION["message"])) {
 			return false;
 		}
@@ -100,7 +104,7 @@ class User extends Db
 
 	public static function requeteConnexion()
 	{
-		// On fait la requete en base de donne avec le login
+		// Requete en bdd.
 		$login = strtolower(htmlspecialchars($_POST["user"]));
 		$password = htmlspecialchars($_POST["password"]);
 
@@ -126,53 +130,24 @@ class User extends Db
 		} else return true;
 	}
 
-	// public static function verifConnexion()
-	// {
-	// 	if (!$requeteConnexion) {
-	// 		$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
-	// 			Il y a eu un probleme avec l'execution de la requete
-	// 		</div>";
-	// 		header('Location:' . BASE_PATH . 'connexion.php');
-	// 		exit();
-	// 	}
 
-	// 	// Si le login n'existe pas en bdd, message d'erreur
-	// 	if ($requeteConnexion->rowCount() == 0) {
+	public static function deconnexion()
+	{
+		if (isset($_GET['action']) and $_GET['action'] == 'deconnexion')
+			session_destroy();
+		header('location:' . BASE_PATH . '/connexion');
+		exit;
 
-	// 		header('Location:' . BASE_PATH . 'connexion.php');
-	// 		exit();
-	// 	}
+		if (isAdmin()) {
+			header("location:" . BASE_PATH . "alluser");
+			exit;
+		}
 
-	// 	//  Verification mdp
-	// 	if ($requeteConnexion->rowCount() == 1) {
-	// 		$userFromBdd = $requeteConnexion->fetch(PDO::FETCH_ASSOC);
-	// 		// echo "<pre>";
-	// 		// print_r($userFromBdd);
-	// 		// echo "</pre>";
-	// 		// die;
-
-
-	// 	}
-	// }
-
-	// // Deconnecter si dans l'url c'est écrit deconnexion, sinon redirection page d'accueil.
-	// public static function deconnexion()
-	// {
-	// 	if (isset($_GET["action"]) && $_GET["action"] == "deconnexion") {
-	// 		session_destroy();
-	// 		header("location:" . URL . "connexion.php");
-	// 		exit;
-	// 	}
-
-	// 	if (isConnect()) {
-	// 		header("location:" . URL . "pageAccueil.php");
-	// 		exit;
-	// 	}
-	// }
-
-
-
-
+		if (isConnect()) {
+			header("location:" . BASE_PATH . "profil");
+			exit;
+		}
+	}
 
 	// fin des fonctions pour la connexion et deconnexion.
 	//____________________________________________________

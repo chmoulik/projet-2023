@@ -13,7 +13,7 @@ $requete = Db::query("SELECT * FROM `user`");
 
 <!-- <pre>
 <?php
-print_r($requete);
+//print_r($requete);
 ?>
 </pre> -->
 
@@ -37,6 +37,7 @@ print_r($requete);
             <th scope="col">Login</th>
             <th scope="col">Mail</th>
             <th scope="col">Mot de passe</th>
+            <th scope="col">Statut</th>
 
         </tr>
     </thead>
@@ -51,7 +52,7 @@ print_r($requete);
                 <td><?= $user["login"] ?></td>
                 <td><?= $user["email"] ?></td>
                 <td><?= $user["password"] ?></td>
-
+                <td><?= $user["statut"] ?></td>
                 <td>
                     <a href="<?= URL ?>/supprimer?action=delete&id=<?= $user["id"] ?>" class="btn btn-danger">Supprimer</a>
                 </td>

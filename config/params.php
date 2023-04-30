@@ -21,6 +21,7 @@ const CONFIG = [
 ];
 
 
+
 /**
  * Constantes pour accéder rapidement aux dossiers importants du MVC
  */
@@ -45,9 +46,12 @@ $routes = [ //  Route pour utilisateur
     ''                  =>  ['AppController', 'index'],
     '/inscription'     => ['UserController', 'add_user'],
     '/modification_utilisateur' => ['UserController', 'update_user'],
+    // '/modification_information' => ['UserController', 'modif_information'],
     '/alluser' => ['UserController', 'all_user'],
     '/supprimer' => ['UserController', 'delete_user'],
-    '/connexion' => ['UserController', 'connexion_membre']    //le slash dans ('/add-user') est important pour l'URL.
+    '/connexion' => ['UserController', 'connexion_user'],
+    '/profil' => ['UserController'], ['page_profil']
+    //le slash dans ('/add-user') est important pour l'URL.
 
 
     //Route pour articles

@@ -10,10 +10,11 @@ require(VIEWS . './inc/menu.php'); //menu
 <?= isset($_SESSION["message"]) ? $_SESSION["message"] : "";
 $_SESSION["message"] = "";
 ?>
+<!-- action="<?= BASE_PATH ?>/pageAccueil    " -->
 <form method="post" action="" class="w-50 mx-auto">
     <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="user" placeholder="admin" name="user" value="<?= isset($_COOKIE["login"]) ? $_COOKIE["login"] : ""; ?>">
-        <label for="user">Login</label>
+        <input type="text" class="form-control" id="user" placeholder="admin" name="user" value="<?= isset($_COOKIE["user"]) ? $_COOKIE["user"] : ""; ?>">
+        <label for="user">Pseudo</label>
     </div>
     <div class="form-floating">
         <input type="password" class="form-control" id="password" placeholder="votre mot de passe" name="password">

@@ -7,8 +7,7 @@ require(VIEWS . './inc/menu.php'); //menu
 ?>
 
 
-<h1>Page d'accueil !</h1>
-
+<h1>Page de profil !</h1>
 
 
 <?php

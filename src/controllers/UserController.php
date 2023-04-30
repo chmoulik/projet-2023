@@ -62,6 +62,7 @@ class UserController
 				$_SESSION['message'] .= "Le compte a bien été modifié !";
 			}
 		}
+
 		include VIEWS . "new_user/modification_utilisateur.php";
 	}
 
@@ -76,7 +77,7 @@ class UserController
 				$_SESSION['message'] .= "Le compte a bien été supprimé !";
 			}
 		}
-		header("Location:" . BASE_PATH . "alluser");
+		header("Location:" . BASE_PATH . "/alluser");
 	}
 
 
@@ -94,17 +95,24 @@ class UserController
 
 
 	// Connxeion membre 
-	public static function connexion_membre()
+	public static function connexion_user()
 	{
 		if (User::verifyUser()) {
 			User::requeteConnexion(); // à revoir le bon argument !
-		} else {
-		}
-
-		// return User::verifConnexion();
-
+		} else
+			include VIEWS . "./new_user/connexion.php";
+	}
 
 
-		include VIEWS . "./new_user/connexion.php";
+	// Deconnecter si dans l'url c'est écrit deconnexion, sinon redirection (user -> accueil -- admin -> liste utilisateurs).
+	public static function deconnexionUser()
+	{
+		User::deconnexion();
+	}
+
+
+	public static function page_profil()
+	{
+		include VIEWS . './new_user/profil.php';
 	}
 }
