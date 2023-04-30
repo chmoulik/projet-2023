@@ -73,10 +73,7 @@ class User extends Db
 	//Fonction qui renvoie true si l'utilisateur est admin, false sinon
 	public static function isAdmin()
 	{
-		if (!isConnect()) {
-			return false;
-		}
-		if ($_SESSION["user"]["statut"] == 0) {
+		if (!self::isConnect() or ($_SESSION["user"]["statut"] == 0)) {
 			return false;
 		}
 		return true;
@@ -130,7 +127,6 @@ class User extends Db
 		} else return true;
 	}
 
-
 	public static function deconnexion()
 	{
 		if (isset($_GET['action']) and $_GET['action'] == 'deconnexion')
@@ -138,12 +134,12 @@ class User extends Db
 		header('location:' . BASE_PATH . '/connexion');
 		exit;
 
-		if (isAdmin()) {
+		if (self::isAdmin()) {
 			header("location:" . BASE_PATH . "alluser");
 			exit;
 		}
 
-		if (isConnect()) {
+		if (self::isConnect()) {
 			header("location:" . BASE_PATH . "profil");
 			exit;
 		}

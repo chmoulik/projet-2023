@@ -98,7 +98,7 @@ class UserController
 	public static function connexion_user()
 	{
 		if (User::verifyUser()) {
-			User::requeteConnexion(); // à revoir le bon argument !
+			User::requeteConnexion();
 		} else
 			include VIEWS . "./new_user/connexion.php";
 	}

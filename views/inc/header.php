@@ -56,7 +56,7 @@ function isAdmin()
                 if (isAdmin()) {
                 ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= BASE_PATH ?>/alluser">Liste utilisateurs</a>
+                        <a class="nav-link" href="<?= BASE_PATH ?>/alluser">Liste utilisateur</a>
                     </li>
                 <?php
                 }
