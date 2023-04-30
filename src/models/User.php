@@ -19,9 +19,10 @@ class User extends Db
 				password_hash(htmlspecialchars($_POST["password"]), PASSWORD_DEFAULT),
 			]
 		);
+		// verification si le pseudo est deja pris.
 		// $membre = self::prepare("SELECT * FROM membre WHERE login='$_POST[login]'",??? , true);
 		// if ($membre->rowCount() > 0) {
-		// 	$_SESSION["message"] .= "<div class='erreur'>Pseudo indisponible. Veuillez en choisir un autre.</div>";
+		// 	$_SESSION["message"] .= "<div class='erreur'>Pseudo indisponible. Veuillez en choisir un autre pseudo.</div>";
 		// }
 		return $reponse;
 	}
@@ -70,6 +71,8 @@ class User extends Db
 		}
 		return true;
 	}
+
+
 	//Fonction qui renvoie true si l'utilisateur est admin, false sinon
 	public static function isAdmin()
 	{
@@ -80,13 +83,13 @@ class User extends Db
 	}
 
 	public static function verifyUser()
-	{ //  Si le user (login) n'existe pas ou si il est vide
+	{ //  Si le user (login) n'existe pas ou si il est vide.
 		if (!isset($_POST["user"]) or empty($_POST["user"])) {
 			$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
 			Veuillez remplir votre login
 		</div>";
 		};
-		//  Si le password n'existe pas ou si il est vide
+		//  Si le password n'existe pas ou si il est vide.
 		if (!isset($_POST["password"]) or empty($_POST["password"])) {
 			$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
 			Veuillez remplir votre mot de passe
@@ -109,14 +112,14 @@ class User extends Db
 
 		if (!$requeteConnexion) {
 			$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
-		Votre login n'existe pas
+		Ce pseudo n'existe pas
 	</div>";
 		} else {
 			// verification du lien entre le login et son mdp.
 			$hach_password = $requeteConnexion["password"];
 			if (!password_verify($password, $hach_password)) {
 				$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
-					Votre mdp est incorrect
+					Votre mot de passe est incorrect
 				</div>";
 			} else
 				setcookie("login", $_POST["user"], time() + 3 * 30 * 24 * 60 * 60);
