@@ -14,15 +14,3 @@ require(VIEWS . 'inc/head.php');
 <a href="http://localhost:8888/php/projet_2023/public/index.php/connexion">Connexion</a>
 
 <a href="http://localhost:8888/php/projet_2023/public/index.php/alluser">Liste des utilisateurs</a>
-
-
-
-
-
-<a href="http://localhost:8888/php/projet_2023/public/index.php/profil">Profil</a>
-<a href="http://localhost:8888/php/projet_2023/public/index.php/bureaux">Bureaux</a>
-
-
-
-
-<!-- <a href="http://localhost:8888/php/projet_2023/public/index.php/modification_utilisateur ">Modifier</a> -->

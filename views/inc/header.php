@@ -1,5 +1,7 @@
 <?php
 
+
+
 function isConnect()
 {
     if (!isset($_SESSION["user"]) or empty($_SESSION["user"])) {
@@ -50,7 +52,7 @@ function isAdmin()
                         <a class="nav-link" href="<?= BASE_PATH ?>/profil">Profil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= BASE_PATH ?>/connexion?action=deconnexion">Deconnexion</a>
+                        <a class="nav-link" href="<?= BASE_PATH ?>/deconnexion">Deconnexion</a>
                     </li>
                 <?php
                 }

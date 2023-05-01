@@ -83,7 +83,6 @@ class UserController
 
 
 
-
 	// Tout les utilisateurs (administrateur)
 	public static function all_user()
 	{
@@ -92,26 +91,30 @@ class UserController
 
 
 
-
 	// Connxeion membre 
 	public static function connexion_user()
 	{
 		if (User::verifyUser()) {
 			User::requeteConnexion();
+			if (User::isConnect()) {
+				header("Location :" . BASE_PATH . "/profil");
+			}
 		} else
 			include VIEWS . "./new_user/connexion.php";
 	}
 
 
-	// Deconnecter si dans l'url c'est écrit deconnexion, sinon redirection (user -> accueil -- admin -> liste utilisateurs).
-	public static function deconnexionUser()
+
+	//  Deconnexion - redirection = accueil -- admin = liste utilisateurs).
+	public static function deconnexion()
 	{
 		User::deconnexion();
 	}
 
 
-	public static function page_profil()
+
+	public static function profil()
 	{
-		include VIEWS . './new_user/profil.php';
+		header("Location :" . BASE_PATH . "/profil");
 	}
 }

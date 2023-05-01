@@ -49,10 +49,9 @@ $routes = [ //  Route : utilisateur.
     '/alluser' => ['UserController', 'all_user'],
     '/supprimer' => ['UserController', 'delete_user'],
     '/connexion' => ['UserController', 'connexion_user'],
-    '/profil' => ['UserController'], ['page_profil'],
+    '/deconnexion' => ['UserController', 'deconnexion'],
+    '/profil' => ['UserController', 'profil'],
 
-
-    //  Route : articles.
-    // 'bureauxP' => ['ProduitsController'], ['desks']
+    '/bureaux' => ['BureauxController', 'desks'],
 
 ];

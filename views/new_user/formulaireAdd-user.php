@@ -2,7 +2,7 @@
 
 require(VIEWS . 'inc/head.php');
 require(VIEWS . 'inc/header.php');
-require(VIEWS . './inc/menu.php');
+// require(VIEWS . './inc/menu.php');
 ?>
 
 <h1 class="text-center my-5">Inscription</h1>

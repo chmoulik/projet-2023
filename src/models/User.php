@@ -132,22 +132,13 @@ class User extends Db
 
 	public static function deconnexion()
 	{
-		if (isset($_GET['action']) and $_GET['action'] == 'deconnexion')
-			session_destroy();
-		header('location:' . BASE_PATH . '/connexion');
-		exit;
+		session_destroy();
+		header('location:' . BASE_PATH);
 
-		if (self::isAdmin()) {
-			header("location:" . BASE_PATH . "alluser");
-			exit;
-		}
-
-		if (self::isConnect()) {
-			header("location:" . BASE_PATH . "profil");
-			exit;
+		if (isAdmin()) {
+			header('location:' . BASE_PATH . "/alluser");
 		}
 	}
-
+}
 	// fin des fonctions pour la connexion et deconnexion.
 	//____________________________________________________
-}
