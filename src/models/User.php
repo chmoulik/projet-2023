@@ -82,14 +82,19 @@ class User extends Db
 		return true;
 	}
 
+
+	// Verification si le pseudo et le mdp existe.
 	public static function verifyUser()
-	{ //  Si le user (login) n'existe pas ou si il est vide.
-		if (!isset($_POST["user"]) or empty($_POST["user"])) {
-			$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
+	{
+		// pseudo
+		if (!isset($_POST["user"])  == $_SESSION['message'] = '')
+
+			if (!isset($_POST["user"]) or empty($_POST["user"])) {
+				$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
 			Veuillez remplir votre login
 		</div>";
-		};
-		//  Si le password n'existe pas ou si il est vide.
+			};
+		//  password 
 		if (!isset($_POST["password"]) or empty($_POST["password"])) {
 			$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
 			Veuillez remplir votre mot de passe
@@ -102,20 +107,22 @@ class User extends Db
 	}
 
 
+	// Requete en bdd.
 	public static function requeteConnexion()
 	{
-		// Requete en bdd.
+
 		$login = strtolower(htmlspecialchars($_POST["user"]));
 		$password = htmlspecialchars($_POST["password"]);
 
 		$requeteConnexion = self::prepare("SELECT * FROM user WHERE login = ?", [$login], true);
 
+		//Verification si pseudo existe en bdd.
 		if (!$requeteConnexion) {
 			$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
 		Ce pseudo n'existe pas
 	</div>";
 		} else {
-			// verification du lien entre le login et son mdp.
+			// Vérification du lien entre son login et son mdp.
 			$hach_password = $requeteConnexion["password"];
 			if (!password_verify($password, $hach_password)) {
 				$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
@@ -130,6 +137,8 @@ class User extends Db
 		} else return true;
 	}
 
+
+	// Deconnexion : direction = accueil, si admin = liste utilisateurs.
 	public static function deconnexion()
 	{
 		session_destroy();

@@ -86,12 +86,16 @@ class UserController
 	// Tout les utilisateurs (administrateur)
 	public static function all_user()
 	{
-		include VIEWS . "new_user/allUser.php";
+		if (User::isAdmin()) {
+			include VIEWS . "new_user/allUser.php";
+		} else {
+			include VIEWS . "new_user/connexion.php";
+		}
 	}
 
 
 
-	// Connxeion membre 
+	// Connxeion membre & admin
 	public static function connexion_user()
 	{
 		if (User::verifyUser()) {
@@ -105,14 +109,14 @@ class UserController
 
 
 
-	//  Deconnexion - redirection = accueil -- admin = liste utilisateurs).
+	//  Deconnexion : redirection = accueil -- admin = liste utilisateurs).
 	public static function deconnexion()
 	{
 		User::deconnexion();
 	}
 
 
-
+	// Modifier ses informations.
 	public static function profil()
 	{
 		header("Location :" . BASE_PATH . "/profil");
