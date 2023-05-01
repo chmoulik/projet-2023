@@ -42,17 +42,17 @@ const COVER = '../../public/upload/';
 /**
  * Liste des actions/méthodes possibles (les routes du routeur)
  */
-$routes = [ //  Route pour utilisateur
+$routes = [ //  Route : utilisateur.
     ''                  =>  ['AppController', 'index'],
     '/inscription'     => ['UserController', 'add_user'],
     '/modification_utilisateur' => ['UserController', 'update_user'],
-    // '/modification_information' => ['UserController', 'modif_information'],
     '/alluser' => ['UserController', 'all_user'],
     '/supprimer' => ['UserController', 'delete_user'],
     '/connexion' => ['UserController', 'connexion_user'],
-    '/profil' => ['UserController'], ['page_profil']
-    //le slash dans ('/add-user') est important pour l'URL.
+    '/profil' => ['UserController'], ['page_profil'],
 
 
-    //Route pour articles
+    //  Route : articles.
+    // 'bureauxP' => ['ProduitsController'], ['desks']
+
 ];

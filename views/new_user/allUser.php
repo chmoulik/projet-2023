@@ -53,6 +53,8 @@ $requete = Db::query("SELECT * FROM `user`");
                 <td><?= $user["email"] ?></td>
                 <td><?= $user["password"] ?></td>
                 <td><?= $user["statut"] ?></td>
+
+
                 <td>
                     <a href="<?= URL ?>/supprimer?action=delete&id=<?= $user["id"] ?>" class="btn btn-danger">Supprimer</a>
                 </td>

@@ -93,7 +93,6 @@ class UserController
 
 
 
-
 	// Connxeion membre 
 	public static function connexion_user()
 	{
