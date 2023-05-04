@@ -108,33 +108,31 @@ class User extends Db
 
 
 	// Requete en bdd.
-	public static function requeteConnexion()
+	// Elle regarde si les donnees utilisateur existent en bdd, si elles existent, alors elle met les infos dans la session
+	//
+	public static function verifyUserBdd()
 	{
-
+		// Je fqis lq requete en bdd
 		$login = strtolower(htmlspecialchars($_POST["user"]));
 		$password = htmlspecialchars($_POST["password"]);
-
 		$requeteConnexion = self::prepare("SELECT * FROM user WHERE login = ?", [$login], true);
 
 		//Verification si pseudo existe en bdd.
 		if (!$requeteConnexion) {
 			$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
-		Ce pseudo n'existe pas
-	</div>";
-		} else {
-			// Vérification du lien entre son login et son mdp.
-			$hach_password = $requeteConnexion["password"];
-			if (!password_verify($password, $hach_password)) {
-				$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
-					Votre mot de passe est incorrect
-				</div>";
-			} else
-				setcookie("login", $_POST["user"], time() + 3 * 30 * 24 * 60 * 60);
-			$_SESSION["user"] = $requeteConnexion;
-		}
-		if (!empty($_SESSION["message"])) {
+			Ce pseudo n'existe pas
+			</div>";
 			return false;
-		} else return true;
+		}
+		// Vérification du lien entre son login et son mdp.
+		$hach_password = $requeteConnexion["password"];
+		if (!password_verify($password, $hach_password)) {
+			$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
+				Votre mot de passe est incorrect
+			</div>";
+			return false;
+		}
+		return $requeteConnexion;
 	}
 
 
@@ -142,11 +140,21 @@ class User extends Db
 	public static function deconnexion()
 	{
 		session_destroy();
-		header('location:' . BASE_PATH);
+		header('location:' . BASE_PATH . "/connexion");
 
 		if (isAdmin()) {
 			header('location:' . BASE_PATH . "/alluser");
 		}
+	}
+
+	public static function redirectAdminOrMember()
+	{
+		if (User::isAdmin()) {
+			header("Location:" . BASE_PATH . "/alluser");
+			exit;
+		}
+		header("Location:" . BASE_PATH . "/profil");
+		exit;
 	}
 }
 	// fin des fonctions pour la connexion et deconnexion.

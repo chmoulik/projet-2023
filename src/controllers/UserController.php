@@ -68,6 +68,39 @@ class UserController
 
 
 
+	// Modification information utilisateur.
+	public static function update()
+	{
+		$_SESSION['message'] = "";
+
+		if (isset($_POST) and !empty($_POST)) {
+			if (empty($_POST['first_name']) or !isset($_POST['first_name'])) {
+				$_SESSION['message'] .= "Ecrire le prénom <br>";
+			}
+			if (empty($_POST['last_name']) or !isset($_POST['last_name'])) {
+				$_SESSION['message'] .= "Ecrire le nom <br>";
+			}
+			if (empty($_POST['login']) or !isset($_POST['login'])) {
+				$_SESSION['message'] .= "Ecrire le login <br>";
+			}
+			if (empty($_POST['email']) or !isset($_POST['email'])) {
+				$_SESSION['message'] .= "Ecrire le mail <br>";
+			}
+			if (empty($_POST['password']) or !isset($_POST['password'])) {
+				$_SESSION['message'] .= "Ecrire le mot de passe <br>";
+			}
+			if (isset($_SESSION['message']) and empty($_SESSION['message'])) {
+				User::updateUser();
+				$_SESSION['message'] .= "Le compte a bien été modifié !";
+			}
+		}
+
+		include VIEWS . "new_user/profil.php";
+	}
+
+
+
+
 
 	// Suprimer utilisteur (administrateur)
 	public static function delete_user()
@@ -98,13 +131,22 @@ class UserController
 	// Connxeion membre & admin
 	public static function connexion_user()
 	{
-		if (User::verifyUser()) {
-			User::requeteConnexion();
-			if (User::isConnect()) {
-				header("Location :" . BASE_PATH . "/profil");
+		if (User::isConnect()) {
+			User::redirectAdminOrMember();
+		}
+
+		if (!empty($_POST)) {
+			User::verifyUser();
+			if (!$_SESSION['message']) {
+				$infoUser = User::verifyUserBdd();
+				if ($infoUser) {
+					$_SESSION["user"] = $infoUser;
+					User::redirectAdminOrMember();
+				}
 			}
-		} else
-			include VIEWS . "./new_user/connexion.php";
+		}
+
+		include VIEWS . "./new_user/connexion.php";
 	}
 
 
@@ -119,6 +161,6 @@ class UserController
 	// Modifier ses informations.
 	public static function profil()
 	{
-		header("Location :" . BASE_PATH . "/profil");
+		include VIEWS . "./new_user/profil.php";
 	}
 }

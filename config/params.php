@@ -43,15 +43,19 @@ const COVER = '../../public/upload/';
  * Liste des actions/méthodes possibles (les routes du routeur)
  */
 $routes = [ //  Route : utilisateur.
-    ''                  =>  ['AppController', 'index'],
+    ''  =>  ['AppController', 'index'],
+
     '/inscription'     => ['UserController', 'add_user'],
     '/modification_utilisateur' => ['UserController', 'update_user'],
+    '/profil' => ['UserController', 'update'],
     '/alluser' => ['UserController', 'all_user'],
     '/supprimer' => ['UserController', 'delete_user'],
     '/connexion' => ['UserController', 'connexion_user'],
     '/deconnexion' => ['UserController', 'deconnexion'],
-    '/profil' => ['UserController', 'profil'],
 
-    '/bureaux' => ['BureauxController', 'desks'],
+
+
+    // routes : articles.
+    '/produits' => ['ProduitController', 'produits'],
 
 ];

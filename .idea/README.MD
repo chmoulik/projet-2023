@@ -1,5 +1,5 @@
 #projet 2023
 
-Créer un site de E-commerce back et front.
+InformatiDesk est une plateforme qui vend des bureaux ergonomiques et des chaises confortable.
 
-Il y'a du html, css, js, php ainsi que du python.
+Coding avec html, css, js, php ainsi que python.
