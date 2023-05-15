@@ -57,12 +57,16 @@ function isAdmin()
                     <li class="nav-item">
                         <a class="nav-link" href="<?= BASE_PATH ?>/deconnexion">Deconnexion</a>
                     </li>
+
                 <?php
                 }
                 if (isAdmin()) {
                 ?>
                     <li class="nav-item">
                         <a class="nav-link" href="<?= BASE_PATH ?>/alluser">Liste utilisateur</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= BASE_PATH ?>/new-produit">produits</a>
                     </li>
                 <?php
                 }

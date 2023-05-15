@@ -1,0 +1,66 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.3
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : localhost:8889
+-- Généré le :  jeu. 04 mai 2023 à 19:23
+-- Version du serveur :  5.7.26
+-- Version de PHP :  7.4.2
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Base de données :  `projet_2023`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `login` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `ville` varchar(20) DEFAULT NULL,
+  `code_postal` int(5) UNSIGNED ZEROFILL DEFAULT NULL,
+  `adresse` varchar(50) DEFAULT NULL,
+  `statut` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`id`, `last_name`, `first_name`, `login`, `email`, `password`, `ville`, `code_postal`, `adresse`, `statut`) VALUES
+(254, '   modif1', '   modif1', '   modif1', 'modif11770770@hotmail.com', '$2y$10$RWPGKmcuftkOP.pz3Dxl5uALKx0UTV3mQUBfXo6lqR8.L782xyt1y', '', 00000, '', 1),
+(255, '  dimanche', '  dimanche', '  dimanche', 'chmoulik770770@hotmail.com', '$2y$10$T6hywBqu6knGroOY0nD1nuVHNzkQHGtp/mA5ozyhbFuGNkGIFHXMO', '', 00000, '', 1),
+(256, 'pasadmin', 'pasadmin', 'pasadmin', 'azeaze@erer.com', '$2y$10$DJNfPMx0pI9BiV4LwGJniukFA0JtAdbuApkuUCd/tkpHyQD21KBmG', '', 00000, '', 0),
+(259, 'a', 'a', 'a', 'admin@admin.admin', '$2y$10$dZ9IleLbE/doeQypfQF2JOo04.vr7rlCafJd85feJME0d3K.9FqmS', '', 00000, '', 0),
+(260, 'mare', 'mare', 'mare', 'chmoulik77070@hotmail.com', '$2y$10$z9CxD0GNgK/u/QzdBMtGyu077QXCLCT8Lx9AUVdkDT4eyAFaBie4G', '', 00000, '', 1);
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `login` (`login`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=261;

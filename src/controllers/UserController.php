@@ -27,7 +27,7 @@ class UserController
 			}
 			if (isset($_SESSION['message']) and empty($_SESSION['message'])) {
 				User::insert();
-				$_SESSION['message'] .= "Votre compte a bien été créé !";
+				$_SESSION['message'] .= " Votre compte a bien été créé " . $_POST['first_name'];
 			}
 		}
 		include VIEWS . "/new_user/formulaireAdd-user.php";
@@ -59,7 +59,7 @@ class UserController
 			}
 			if (isset($_SESSION['message']) and empty($_SESSION['message'])) {
 				User::updateUser();
-				$_SESSION['message'] .= "Le compte a bien été modifié !";
+				$_SESSION['message'] .= "Le compte de " . $_SESSION['user']['first_name'] . "  a bien été modifié !";
 			}
 		}
 
@@ -69,7 +69,7 @@ class UserController
 
 
 	// Modification information utilisateur.
-	public static function update()
+	public static function updateProfil()
 	{
 		$_SESSION['message'] = "";
 
@@ -90,7 +90,7 @@ class UserController
 				$_SESSION['message'] .= "Ecrire le mot de passe <br>";
 			}
 			if (isset($_SESSION['message']) and empty($_SESSION['message'])) {
-				User::updateUser();
+				User::update();
 				$_SESSION['message'] .= "Le compte a bien été modifié !";
 			}
 		}
@@ -107,7 +107,7 @@ class UserController
 	{
 		if (isset($_GET["id"]) and (!empty($_GET["id"]))) {
 			User::deleteUser($_GET['id']); {
-				$_SESSION['message'] .= "Le compte a bien été supprimé !";
+				$_SESSION['message'] .= "Le compte" . $_SESSION['user']['first_name'] . " a bien été supprimé !";
 			}
 		}
 		header("Location:" . BASE_PATH . "/alluser");
@@ -161,6 +161,7 @@ class UserController
 	// Modifier ses informations.
 	public static function profil()
 	{
+		User::updateUser();
 		include VIEWS . "./new_user/profil.php";
 	}
 }

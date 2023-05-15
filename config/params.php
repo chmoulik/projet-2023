@@ -55,7 +55,7 @@ $routes = [ //  Route : utilisateur.
 
 
 
-    // routes : articles.
-    '/produits' => ['ProduitController', 'produits'],
+    // routes : nouvel article.
+    '/new-produit' => ['ProduitController', 'new_produit'],
 
 ];
