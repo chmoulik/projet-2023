@@ -46,6 +46,28 @@ class User extends Db
 		return $update;
 	}
 
+
+	// Requete : modification utilisateur.
+	public static function update()
+	{
+		$update = self::prepare(
+			"UPDATE user  SET first_name = ?, last_name = ?, login = ?, email = ?, password = ?  WHERE id = ? ",
+			[
+				strtolower(htmlspecialchars($_POST["last_name"])),
+				strtolower(htmlspecialchars($_POST["first_name"])),
+				strtolower(htmlspecialchars($_POST["login"])),
+				strtolower(htmlspecialchars($_POST["email"])),
+				password_hash(htmlspecialchars($_POST["password"]), PASSWORD_DEFAULT),
+				strtolower(htmlspecialchars($_SESSION['user']['id'])),
+			]
+		);
+		User::updatSession();
+		return $update;
+	}
+
+
+
+
 	// Requete : supprimer utilisateur.
 	public static function deleteUser($id)
 	{
@@ -105,6 +127,15 @@ class User extends Db
 		}
 		return true;
 	}
+
+
+	public static function updatSession()
+	{
+		$requeteConnexion = self::prepare("SELECT * FROM user WHERE id = ?", [$_SESSION['user']['id']], true);
+		// print_r($requeteConnexion);
+		$_SESSION['user'] = $requeteConnexion;
+	}
+
 
 
 	// Requete en bdd.

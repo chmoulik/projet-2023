@@ -9,7 +9,7 @@ if (!isConnect()) header("location:" . BASE_PATH . "/connexion");
 //modification : information membre
 
 
-print_r($_SESSION);
+// print_r($_SESSION);
 ?>
 
 <h1 class="text-center my-5">Modifier vos informations</h1>

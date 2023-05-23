@@ -19,7 +19,7 @@ class Produit extends Db
                 htmlspecialchars($_POST["choix_categorie"]),
             ]
         );
-        print_r($_POST);
+        // print_r($_POST);
 
         return $reponse;
     }

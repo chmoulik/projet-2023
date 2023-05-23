@@ -47,7 +47,7 @@ $routes = [ //  Route : utilisateur.
 
     '/inscription'     => ['UserController', 'add_user'],
     '/modification_utilisateur' => ['UserController', 'update_user'],
-    '/profil' => ['UserController', 'update'],
+    '/profil' => ['UserController', 'updateProfil'],
     '/alluser' => ['UserController', 'all_user'],
     '/supprimer' => ['UserController', 'delete_user'],
     '/connexion' => ['UserController', 'connexion_user'],
@@ -57,5 +57,7 @@ $routes = [ //  Route : utilisateur.
 
     // routes : nouvel article.
     '/new-produit' => ['ProduitController', 'new_produit'],
+    '/categorie' => ['ProduitController', 'show_categories'],
+    '/articles' => ['ProduitController', 'articles'],
 
 ];

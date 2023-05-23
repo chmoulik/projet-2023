@@ -46,4 +46,17 @@ class ProduitController
 
         include VIEWS . "./produits/new-produit.php";
     }
+
+    public static function show_categories()
+    {
+        $categoris = Db::query("SELECT * FROM `categorie`");
+        include VIEWS . "./produits/categorie.php";
+    }
+
+
+    public static function articles()
+    {
+        $categorie = Db::prepare("SELECT * FROM `categorie` WHERE id_categorie=?", [$_GET['id']], true);
+        include VIEWS . "./produits/articles.php";
+    }
 }
