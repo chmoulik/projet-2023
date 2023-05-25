@@ -37,8 +37,7 @@ class ProduitController
                 }
             }
             if (isset($_SESSION['message']) and empty($_SESSION['message'])) {
-                Produit::insert($name);
-                $_SESSION['message'] .= "Ecrire le prix <br>";
+                Produit::insert($name); //a regler plus tard le id en jointure.
             }
         }
         $listCategorie = Categorie::readAllCategories();
@@ -57,6 +56,19 @@ class ProduitController
     public static function articles()
     {
         $categorie = Db::prepare("SELECT * FROM `categorie` WHERE id_categorie=?", [$_GET['id']], true);
+
+        $articles = Db::query("SELECT * FROM `article` a INNER JOIN article_categorie c ON a.id_article = c.article_id WHERE categorie_id = " . $_GET['id']);
+
         include VIEWS . "./produits/articles.php";
+    }
+
+
+
+    public static function article()
+    {
+        $article = Db::prepare("SELECT * FROM `article` WHERE id_article=?", [$_GET['id']], true);
+
+
+        include VIEWS . "./produits/article.php";
     }
 }

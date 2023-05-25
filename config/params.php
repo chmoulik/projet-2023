@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 /**
  * Fichier contenant la configuration de l'application
  */
@@ -33,6 +30,7 @@ const MODELS = BASE_DIR . 'src/models/';
 const CONTROLLERS = BASE_DIR . 'src/controllers/';
 const PHOTO = BASE_DIR . 'public/upload/';
 const COVER = '../../public/upload/';
+const ASSETS = '../../assets/';
 
 // echo BASE_PATH;
 //print_r(VIEWS);
@@ -59,5 +57,7 @@ $routes = [ //  Route : utilisateur.
     '/new-produit' => ['ProduitController', 'new_produit'],
     '/categorie' => ['ProduitController', 'show_categories'],
     '/articles' => ['ProduitController', 'articles'],
+    '/article' => ['ProduitController', 'article'],
+
 
 ];

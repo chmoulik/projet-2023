@@ -30,11 +30,16 @@ class  Db
         $reponse = $prepare->execute($values);
         if ($reponse) {
             if ($bool == true) {
-                return $prepare->fetch(); // tout les champ d'une ligne, si true.
+                $result = $prepare->fetch(); // tout les champ d'une ligne, si true.
+                $_SESSION['last_id'] = self::getDb()->lastInsertId();
+                return $result;
             } else {
-                return $prepare->fetchAll(); // tout les champs et toutes les lignes, si false.
+                $result = $prepare->fetchAll(); // tout les champ d'une ligne, si true.
+                $_SESSION['last_id'] = self::getDb()->lastInsertId();
+                return $result;
             }
         }
+        print_r(self::getDb()->lastInsertId());
     }
 
 

@@ -8,7 +8,7 @@ class Produit extends Db
     public static function insert($name)
     {
         $reponse = self::prepare(
-            "INSERT INTO `article` (couleur, matière, titre, description, prix, photo, categorie_id) VALUES (?,?,?,?,?,?,?)",
+            "INSERT INTO `article` (couleur, matière, titre, description, prix, photo) VALUES (?,?,?,?,?,?)",
             [
                 strtolower(htmlspecialchars($_POST["couleur"])),
                 strtolower(htmlspecialchars($_POST["matière"])),
@@ -16,11 +16,19 @@ class Produit extends Db
                 strtolower(htmlspecialchars($_POST["description"])),
                 strtolower(htmlspecialchars($_POST["prix"])),
                 htmlspecialchars($name),
-                htmlspecialchars($_POST["choix_categorie"]),
             ]
         );
         // print_r($_POST);
 
+        $reponse = self::prepare(
+            "INSERT INTO `article_categorie` (article_id, categorie_id) VALUES (?,?)",
+            [
+                //a regler plus tard le id les jointures.
+                $_SESSION['last_id'],
+                htmlspecialchars($_POST["choix_categorie"]),
+
+            ]
+        );
         return $reponse;
     }
 }
