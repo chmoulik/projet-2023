@@ -2,7 +2,7 @@
 
 require(VIEWS . 'inc/head.php');
 require(VIEWS . 'inc/header.php');
-require(VIEWS . './inc/functions.php');
+
 
 ?>
 
@@ -26,8 +26,17 @@ require(VIEWS . './inc/functions.php');
     </tr>
     <tr>
         <th>photo</th>
-        <img src="<?= ASSETS ?>img/<?= $valeur['image'] ?>" alt="">
-        <td><?= $article['photo'] ?></td>
+        <td>
+            <img src="<?= ASSETS ?>img/<?= $article['photo'] ?>" alt="">
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <a href="<?= BASE_PATH ?>/add_panier?id=<?= $_GET['id'] ?>">
+                <button>Ajouter au panier</button>
+            </a>
+        </td>
     </tr>
 </table>
 

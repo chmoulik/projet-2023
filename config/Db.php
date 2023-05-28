@@ -26,16 +26,17 @@ class  Db
 
     public static function prepare(string $request, array $values, bool $bool = false) // $bool = false par default, donc ici pas oubliger d'écrire false.
     {
-        $prepare = self::getDb()->prepare($request);
+        $database = self::getDb();
+        $prepare = $database->prepare($request);
         $reponse = $prepare->execute($values);
         if ($reponse) {
             if ($bool == true) {
                 $result = $prepare->fetch(); // tout les champ d'une ligne, si true.
-                $_SESSION['last_id'] = self::getDb()->lastInsertId();
+                $_SESSION['last_id'] = $database->lastInsertId();
                 return $result;
             } else {
                 $result = $prepare->fetchAll(); // tout les champ d'une ligne, si true.
-                $_SESSION['last_id'] = self::getDb()->lastInsertId();
+                $_SESSION['last_id'] = $database->lastInsertId();
                 return $result;
             }
         }

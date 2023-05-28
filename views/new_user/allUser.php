@@ -55,10 +55,10 @@ $requete = Db::query("SELECT * FROM `user`");
 
 
                 <td>
-                    <a href="<?= URL ?>/supprimer?action=delete&id=<?= $user["id"] ?>" class="btn btn-danger">Supprimer</a>
+                    <a href="<?= BASE_PATH ?>/supprimer?action=delete&id=<?= $user["id"] ?>" class="btn btn-danger">Supprimer</a>
                 </td>
 
-                <td><a href="<?= URL ?>/modification_utilisateur?id=<?= $user["id"] ?>" class="btn btn-success">modifier</a></td>
+                <td><a href="<?= BASE_PATH ?>/modification_utilisateur?id=<?= $user["id"] ?>" class="btn btn-success">modifier</a></td>
 
             <?php
         }

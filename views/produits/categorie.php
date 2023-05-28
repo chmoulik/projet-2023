@@ -5,7 +5,7 @@ require(VIEWS . 'inc/header.php');
 
 ?>
 
-<h1>categorie</h1>
+<h1>categories</h1>
 
 <?php foreach ($categoris as $valeur) : ?>
 

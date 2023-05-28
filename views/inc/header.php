@@ -1,31 +1,3 @@
-<?php
-
-
-
-function isConnect()
-{
-    if (!isset($_SESSION["user"]) or empty($_SESSION["user"])) {
-        return false;
-    }
-    return true;
-}
-//Fonction qui renvoie true si l'utilisateur est admin, false sinon
-function isAdmin()
-{
-    if (!isConnect()) {
-        return false;
-    }
-    if ($_SESSION["user"]["statut"] == 0) {
-        return false;
-    }
-    return true;
-}
-
-
-?>
-
-
-
 <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark" id="maNav">
     <div class="container-fluid">
         <a class="navbar-brand" href="<?= BASE_PATH ?>">InformatiDesk</a>
@@ -71,6 +43,11 @@ function isAdmin()
                 <?php
                 }
                 ?>
+                <?php if (isConnect() && !isAdmin()) : ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= BASE_PATH ?>/panier">Panier (<?= $_SESSION['panier']->getProduct_number() ?>)</a>
+                    </li>
+                <?php endif; ?>
             </ul>
             <?php
             if (isConnect()) {

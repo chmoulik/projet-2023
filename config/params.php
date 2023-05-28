@@ -17,8 +17,6 @@ const CONFIG = [
     ]
 ];
 
-
-
 /**
  * Constantes pour accéder rapidement aux dossiers importants du MVC
  */
@@ -34,8 +32,6 @@ const ASSETS = '../../assets/';
 
 // echo BASE_PATH;
 //print_r(VIEWS);
-
-
 
 /**
  * Liste des actions/méthodes possibles (les routes du routeur)
@@ -58,6 +54,11 @@ $routes = [ //  Route : utilisateur.
     '/categorie' => ['ProduitController', 'show_categories'],
     '/articles' => ['ProduitController', 'articles'],
     '/article' => ['ProduitController', 'article'],
+    '/add_panier' => ['ProduitController', 'add_panier'],
+    '/panier' => ['ProduitController', 'panier'],
+
+
+
 
 
 ];

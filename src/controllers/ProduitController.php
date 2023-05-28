@@ -71,4 +71,25 @@ class ProduitController
 
         include VIEWS . "./produits/article.php";
     }
+
+    public static function add_panier()
+    {
+        //Ajouter le produit au panier
+        $article = Db::prepare("SELECT * FROM `article` WHERE id_article=?", [$_GET['id']], true);
+
+        $article_panier = array(
+            'id' => $_GET['id'],
+            'data' => $article,
+            'quantity' => 1
+        );
+
+        $_SESSION['panier']->add_article($article_panier);
+
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+    }
+
+    public static function panier()
+    {
+        include VIEWS . "./produits/panier.php";
+    }
 }

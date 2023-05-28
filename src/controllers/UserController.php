@@ -33,9 +33,6 @@ class UserController
 		include VIEWS . "/new_user/formulaireAdd-user.php";
 	}
 
-
-
-
 	// Modification information utilisateur.
 	public static function update_user()
 	{
@@ -98,13 +95,10 @@ class UserController
 		include VIEWS . "new_user/profil.php";
 	}
 
-
-
-
-
 	// Suprimer utilisteur (administrateur)
 	public static function delete_user()
 	{
+
 		if (isset($_GET["id"]) and (!empty($_GET["id"]))) {
 			User::deleteUser($_GET['id']); {
 				$_SESSION['message'] .= "Le compte" . $_SESSION['user']['first_name'] . " a bien été supprimé !";
