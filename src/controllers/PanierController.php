@@ -39,4 +39,8 @@ class Panier
     {
         return $this->panier;
     }
+
+    public function deleteArticlePanier()
+    {
+    }
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le :  jeu. 04 mai 2023 à 19:23
+-- Généré le :  lun. 05 juin 2023 à 21:32
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.4.2
 
@@ -11,8 +11,397 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
+-- Base de données :  `blog`
+--
+CREATE DATABASE IF NOT EXISTS `blog` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `blog`;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `article`
+--
+
+CREATE TABLE `article` (
+  `id` int(10) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `published_at` date NOT NULL,
+  `summary` text,
+  `content` longtext,
+  `image` varchar(255) DEFAULT NULL,
+  `is_published` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `article`
+--
+
+INSERT INTO `article` (`id`, `title`, `published_at`, `summary`, `content`, `image`, `is_published`) VALUES
+(1, 'Hellfest 2018, l\'affiche quasi-complète', '2017-01-06', 'Résumé de l\'article Hellfest', '&amp;lt;p&amp;gt;Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. &amp;lt;/p&amp;gt;', '1551648580hellfest-2018-définitive.jpg', 1),
+(2, 'Critique « Star Wars 8 – Les derniers Jedi » de Rian Johnson : le renouveau de la saga ?', '2017-01-07', 'Résumé de l\'article Star Wars 8', '&amp;lt;p&amp;gt;Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue.&amp;lt;/p&amp;gt;', '1551648722star-wars-8-1.jpg', 1),
+(3, 'Revue - The Ramones', '2017-01-01', 'Résumé de l\'article The Ramones', '&amp;lt;p&amp;gt;Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh.&amp;lt;/p&amp;gt;', '1551648648ramones_cchalkie_davies.jpg__800x500_q85_crop_subject_location-2208,1758_subsampling-2_upscale.jpg', 1),
+(4, 'De “Skyrim” à “L.A. Noire” ou “Doom” : pourquoi les vieux jeux sont meilleurs sur la Switch', '2017-01-03', 'Résumé de l\'article Switch', '&amp;lt;p&amp;gt;Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.&amp;lt;/p&amp;gt;', '1551648429skyrim-ok.jpg', 1),
+(5, 'Comment “Assassin’s Creed” trouve un nouveau souffle en Egypte', '2017-01-04', 'Résumé de l\'article Assassin’s Creed', '&amp;lt;p&amp;gt;Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar.&amp;lt;/p&amp;gt;', '1551648365ac_media_screen-pyramids_ncsa.jpg', 1),
+(6, 'BO de « Les seigneurs de Dogtown » : l’époque bénie du rock.', '2017-01-05', 'Résumé de l\'article Les seigneurs de Dogtown', '&amp;lt;p&amp;gt;Nulla sollicitudin. Fusce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros vitae ligula.&amp;lt;/p&amp;gt;', '1551648837Seigneurs_de_Dogtown_.jpg', 1),
+(7, 'Pourquoi &amp;quot;Destiny 2&amp;quot; est un remède à l’ultra-moderne solitude', '2017-01-09', 'Résumé de l\'article Destiny 2', '&amp;lt;p&amp;gt;Pellentesque rhoncus nunc et augue. Integer id felis. Curabitur aliquet pellentesque diam.&amp;lt;/p&amp;gt;', '1551648147destiny.png', 1),
+(8, 'Pourquoi &amp;quot;Mario + Lapins Crétins : Kingdom Battle&amp;quot; est le jeu de la rentrée', '2017-01-08', 'Résumé de l\'article Mario + Lapins Crétins', '&amp;lt;p&amp;gt;Integer quis metus vitae elit lobortis egestas. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.&amp;lt;/p&amp;gt;', '155164831059248d643a98b.jpg', 1),
+(9, '« Le Crime de l’Orient Express » : rencontre avec Kenneth Branagh', '2017-01-02', 'Résumé de l\'article Le Crime de l’Orient Express', '&amp;lt;p&amp;gt;Morbi vel erat non mauris convallis vehicula. Nulla et sapien. Integer tortor tellus, aliquam faucibus, convallis id, congue eu, quam. Mauris ullamcorper felis vitae erat.&amp;lt;/p&amp;gt;', '1551648914express.jpg', 1),
+(10, 'Test multi categories', '2019-04-18', '', '', '14082547811555594680test-unlink.jpg', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `articles_categories`
+--
+
+CREATE TABLE `articles_categories` (
+  `id` int(11) NOT NULL,
+  `article_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `articles_categories`
+--
+
+INSERT INTO `articles_categories` (`id`, `article_id`, `category_id`) VALUES
+(71, 1, 47),
+(72, 2, 108),
+(73, 3, 47),
+(74, 4, 108),
+(75, 5, 108),
+(76, 6, 9),
+(77, 7, 108),
+(78, 8, 108),
+(79, 9, 9),
+(94, 10, 5),
+(95, 10, 9),
+(96, 10, 47),
+(97, 10, 108);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `category`
+--
+
+CREATE TABLE `category` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `image` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `category`
+--
+
+INSERT INTO `category` (`id`, `name`, `description`, `image`) VALUES
+(5, 'Théâtre', 'Dates, représentations, avis...', NULL),
+(9, 'Cinéma', 'Trailers, infos, sorties...', NULL),
+(47, 'Musique', 'Concerts, sorties d\'albums, festivals...', NULL),
+(108, 'Jeux vidéos', 'Videos, tests...', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `mail` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `biography` text,
+  `is_admin` tinyint(1) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `mail`, `password`, `biography`, `is_admin`) VALUES
+(1, 'Yoel', 'EDELMAN', 'qwerty@gmail.com', '0cc175b9c0f1b6a831c399e269772661', 'développer du blog', 1),
+(2, 'Visiteur', 'TEST', 'test@gmail.com', '098f6bcd4621d373cade4e832627b4f6', 'test', 0),
+(15, 'Maxime', 'BASSET', 'max@gmail.com', '0cc175b9c0f1b6a831c399e269772661', 'prof', 1),
+(16, 'Admin', 'ADMIN', 'admin@gmail.com', '098f6bcd4621d373cade4e832627b4f6', '', 1),
+(17, 'Chmouel ', 'AZIZA', 'chmoulik770770@hotmail.com', 'ab4f63f9ac65152575886860dde480a1', '', 0);
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `article`
+--
+ALTER TABLE `article`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `articles_categories`
+--
+ALTER TABLE `articles_categories`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `articles_id` (`article_id`),
+  ADD KEY `categories_id` (`category_id`);
+
+--
+-- Index pour la table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `article`
+--
+ALTER TABLE `article`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT pour la table `articles_categories`
+--
+ALTER TABLE `articles_categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+
+--
+-- AUTO_INCREMENT pour la table `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+
+--
+-- AUTO_INCREMENT pour la table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `articles_categories`
+--
+ALTER TABLE `articles_categories`
+  ADD CONSTRAINT `articles_id` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`),
+  ADD CONSTRAINT `categories_id` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`);
+--
+-- Base de données :  `exam`
+--
+CREATE DATABASE IF NOT EXISTS `exam` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `exam`;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `Aliments`
+--
+
+CREATE TABLE `Aliments` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(250) NOT NULL,
+  `couleur` varchar(250) NOT NULL,
+  `type` varchar(250) NOT NULL,
+  `poids` varchar(250) NOT NULL,
+  `date_achat` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `Aliments`
+--
+
+INSERT INTO `Aliments` (`id`, `nom`, `couleur`, `type`, `poids`, `date_achat`) VALUES
+(31, 'ezedzed', 'jaune', 'Fruit', '100kg', '2023-02-05'),
+(32, 'orange', 'rouge', 'Fruit', '100g', '2023-02-12'),
+(33, 'fraises', 'blanc', 'Fruit', '100g', '2023-02-12'),
+(35, ' lklk,', 'rouge', 'Fruit', '100g', '2023-03-11'),
+(36, 'pessah', 'rouge', 'Fruit', '100g', '2023-04-10');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `Aliments`
+--
+ALTER TABLE `Aliments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `Aliments`
+--
+ALTER TABLE `Aliments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+--
+-- Base de données :  `my_recipes`
+--
+CREATE DATABASE IF NOT EXISTS `my_recipes` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `my_recipes`;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `recipes`
+--
+
+CREATE TABLE `recipes` (
+  `id` int(11) NOT NULL,
+  `author` varchar(50) NOT NULL,
+  `title` varchar(10) NOT NULL,
+  `recipe` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `recipes`
+--
+
+INSERT INTO `recipes` (`id`, `author`, `title`, `recipe`) VALUES
+(1, 'simon', 'melohia', 'metre de loignion dans une caserole et faire revenire dans l\'huile d\'olive'),
+(2, 'fleau', 'couscous', 'couscous avec de la viande et des legumes'),
+(17, 'maman', 'megbouba', 'faire revenir dans de lhuile lail'),
+(18, 'maman', 'sauce', 'faire revenir dans de lhuile lail'),
+(23, 'mami', 'pates', 'faire bouillre dans de leau lail'),
+(28, 'chmouel', 'riz', 'edzez'),
+(37, 'M. Sorbet', 'glace', 'mmmmm'),
+(47, 'nom2', 'teste2', '2222'),
+(49, 'derrnier', 'derrnier', 'derrn'),
+(51, 'sam', 'sam', 'zdzed'),
+(52, '', '', 'uyiyu'),
+(53, 'nom2', 'teste2', '2222'),
+(54, 'nom', 'titre', 'recet'),
+(55, 'chmouel', 'riz', 'zezez'),
+(56, 'chmouel', 'riz', 'edzez');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `recipes`
+--
+ALTER TABLE `recipes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `recipes`
+--
+ALTER TABLE `recipes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+--
 -- Base de données :  `projet_2023`
 --
+CREATE DATABASE IF NOT EXISTS `projet_2023` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `projet_2023`;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `achat`
+--
+
+CREATE TABLE `achat` (
+  `id_achat` int(10) NOT NULL,
+  `acheteur_id` int(10) NOT NULL,
+  `id_article` int(10) NOT NULL,
+  `prix` int(10) NOT NULL,
+  `date_achat` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_expedition` date NOT NULL,
+  `numero_colis` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `article`
+--
+
+CREATE TABLE `article` (
+  `id_article` int(10) NOT NULL,
+  `couleur` varchar(20) NOT NULL,
+  `matière` varchar(255) NOT NULL,
+  `titre` varchar(20) NOT NULL,
+  `description` text NOT NULL,
+  `prix` int(20) NOT NULL,
+  `photo` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `article`
+--
+
+INSERT INTO `article` (`id_article`, `couleur`, `matière`, `titre`, `description`, `prix`, `photo`) VALUES
+(3, 'samirmerci', 'azedae', 'zeze', 'zezef', 111, 'produit-1684171403-64626a8bd932d-Capture d’écran 2022-12-05 à 13.27.14.png'),
+(5, 'efze', 'oijoij', 'iojoijùo', 'top', 112, 'produit-1685023761-646f6c11e3d5d-sql memo.jpeg'),
+(6, 'zaad', 'azaz', 'top', 'zedz', 24435, 'produit-1685023788-646f6c2c0997b-sql memo.jpeg'),
+(7, 'zaad', 'azaz', 'top', 'zedz', 24435, 'produit-1685024357-646f6e652f329-sql memo.jpeg'),
+(8, 'rouge', 'bois', 'zefzeferfer', 'bureau', 200, 'produit-1685024383-646f6e7fd90b4-Capture d’écran 2023-02-22 à 16.03.41.png'),
+(9, 'jaune', 'zefz', 'zefzf', 'zefzfe', 1, 'produit-1685024641-646f6f81b0591-Capture d’écran 2022-12-05 à 13.27.14.png'),
+(10, 'jaune', 'zefz', 'zefzf', 'zefzfe', 1, 'produit-1685024937-646f70a9062b7-Capture d’écran 2022-12-05 à 13.27.14.png'),
+(11, 'jaune', 'azedze', 'zedze', 'zedz', 1, 'produit-1685024951-646f70b7cd51d-Capture d’écran 2022-12-05 à 13.27.14.png'),
+(12, 'jaune', 'azer', 'aaaa', 'aaaa', 1111, 'produit-1685025273-646f71f96c3e2-Capture d’écran 2023-03-02 à 23.22.08.png'),
+(13, 'rouge', 'sdfg', 'zedze', 'huhuuh', 16, 'produit-1685278159-64734dcf69000-background.jpeg'),
+(14, 'jaune', 'bois', 'zedze', 'zdzdzd', 41, 'produit-1685278539-64734f4b8a1b8-background.jpeg');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `article_categorie`
+--
+
+CREATE TABLE `article_categorie` (
+  `article_id` int(11) NOT NULL,
+  `categorie_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `article_categorie`
+--
+
+INSERT INTO `article_categorie` (`article_id`, `categorie_id`) VALUES
+(3, 1),
+(14, 3),
+(9, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `categorie`
+--
+
+CREATE TABLE `categorie` (
+  `id_categorie` int(11) NOT NULL,
+  `nom_de_categorie` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `categorie`
+--
+
+INSERT INTO `categorie` (`id_categorie`, `nom_de_categorie`, `image`) VALUES
+(1, 'bureaux', 'bureau.png'),
+(3, 'chaises', 'produit-1684167972-64625d24d9755-Capture d’écran 2022-12-05 à 13.27.14.png'),
+(4, 'accessoires', '');
 
 -- --------------------------------------------------------
 
@@ -38,15 +427,36 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `last_name`, `first_name`, `login`, `email`, `password`, `ville`, `code_postal`, `adresse`, `statut`) VALUES
-(254, '   modif1', '   modif1', '   modif1', 'modif11770770@hotmail.com', '$2y$10$RWPGKmcuftkOP.pz3Dxl5uALKx0UTV3mQUBfXo6lqR8.L782xyt1y', '', 00000, '', 1),
-(255, '  dimanche', '  dimanche', '  dimanche', 'chmoulik770770@hotmail.com', '$2y$10$T6hywBqu6knGroOY0nD1nuVHNzkQHGtp/mA5ozyhbFuGNkGIFHXMO', '', 00000, '', 1),
-(256, 'pasadmin', 'pasadmin', 'pasadmin', 'azeaze@erer.com', '$2y$10$DJNfPMx0pI9BiV4LwGJniukFA0JtAdbuApkuUCd/tkpHyQD21KBmG', '', 00000, '', 0),
-(259, 'a', 'a', 'a', 'admin@admin.admin', '$2y$10$dZ9IleLbE/doeQypfQF2JOo04.vr7rlCafJd85feJME0d3K.9FqmS', '', 00000, '', 0),
-(260, 'mare', 'mare', 'mare', 'chmoulik77070@hotmail.com', '$2y$10$z9CxD0GNgK/u/QzdBMtGyu077QXCLCT8Lx9AUVdkDT4eyAFaBie4G', '', 00000, '', 1);
+(254, '        profil', 'sessiondansadmin', '        modif1', 'modif11770770@hotmail.com', '$2y$10$qYtdu/9M2XvQU8Ql1rJ6A.zsU1ZJP92e89qX/HlTOTuloZ8biWYC.', '', 00000, '', 1),
+(260, 'mare', 'mare', 'mare', 'chmoulik77070@hotmail.com', '$2y$10$z9CxD0GNgK/u/QzdBMtGyu077QXCLCT8Lx9AUVdkDT4eyAFaBie4G', '', 00000, '', 1),
+(261, ' robert', ' robert', ' robert', 'robert@yopmail.com', '$2y$10$BGqBY8YNIRgxUG8v10YH5e6jRHH7d9JoYWI4ovS.yYy92EY3dUrgW', NULL, NULL, NULL, 0),
+(262, ' tres bien', 'tres bien', ' tres bien', 'tresbien@hotmail.com', '$2y$10$BbSS9AAsnA9ajNa8flRl0uvG9OL0pUWhwhYur2Ur0DbHk1m9p0GGq', NULL, NULL, NULL, 0),
+(263, 'belhadry', 'belhadry', 'belhadry', 'belhadry@erferf.com', '$2y$10$SVTLDHDtalGTVBXCsu6mbOkbf8bFPdBhpxi54n0sLWvrDF/Mimq7m', NULL, NULL, NULL, 0),
+(264, 'simon', 'simon', 'simon', 'simon@simon.fr', '$2y$10$2OKvOCJnuj5b9bZBT2qEveYNCozjb.sLCqz4iQy4T6k7JRHBzuk3S', NULL, NULL, NULL, 0);
 
 --
 -- Index pour les tables déchargées
 --
+
+--
+-- Index pour la table `achat`
+--
+ALTER TABLE `achat`
+  ADD PRIMARY KEY (`id_achat`),
+  ADD KEY `id_article` (`id_article`),
+  ADD KEY `acheteur_id` (`acheteur_id`);
+
+--
+-- Index pour la table `article`
+--
+ALTER TABLE `article`
+  ADD PRIMARY KEY (`id_article`);
+
+--
+-- Index pour la table `categorie`
+--
+ALTER TABLE `categorie`
+  ADD PRIMARY KEY (`id_categorie`);
 
 --
 -- Index pour la table `user`
@@ -60,7 +470,91 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT pour la table `achat`
+--
+ALTER TABLE `achat`
+  MODIFY `id_achat` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `article`
+--
+ALTER TABLE `article`
+  MODIFY `id_article` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT pour la table `categorie`
+--
+ALTER TABLE `categorie`
+  MODIFY `id_categorie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=261;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=265;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `achat`
+--
+ALTER TABLE `achat`
+  ADD CONSTRAINT `achat_ibfk_2` FOREIGN KEY (`id_article`) REFERENCES `article` (`id_article`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `achat_ibfk_3` FOREIGN KEY (`acheteur_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+--
+-- Base de données :  `voiture`
+--
+CREATE DATABASE IF NOT EXISTS `voiture` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `voiture`;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user`
+--
+
+CREATE TABLE `user` (
+  `id_user` int(5) NOT NULL,
+  `login` varchar(255) NOT NULL,
+  `mail` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `telephone` varchar(15) DEFAULT NULL,
+  `nom` varchar(255) NOT NULL,
+  `prenom` varchar(255) NOT NULL,
+  `statut` tinyint(4) NOT NULL DEFAULT '0',
+  `date_creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`id_user`, `login`, `mail`, `password`, `telephone`, `nom`, `prenom`, `statut`, `date_creation`) VALUES
+(1, 'Sam', 'samir@naggara.fr', 'fgdkljklgjfdlkgjfds53454fdfgd', '00336123456789', 'Samir', 'Naggara', 0, '2023-01-03 15:33:32'),
+(2, 'Saruto', 'naruto@shippenden.fr', 'qdsfklmfjdsqfdsq', '003332356646', 'Naruto', 'Uzumaku', 1, '2023-01-03 15:39:53'),
+(3, 'Luffy', 'luffy@pirate.fr', 'fdsfdsfsdfsddfs', 'salut', 'Luffy', 'Yugiwara', 0, '2023-01-03 15:41:01'),
+(32, 'simon', 'chmoulik770770@hotmail.com', 'A', '0643617572', 'aziza', 'chmouel simon', 1, '2023-04-24 16:01:27');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id_user`),
+  ADD UNIQUE KEY `login` (`login`),
+  ADD UNIQUE KEY `mail` (`mail`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
