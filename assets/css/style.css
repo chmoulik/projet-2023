@@ -1,7 +1,32 @@
 h1 {
     background-color: coral;
 }
+
 #maNav a.nav-link,
 #maNav a.navbar-brand {
     color: white;
+}
+
+.category-card {
+    background-color: aqua;
+    padding: 20px;
+    display: grid;
+    grid-template-rows: max-content min-content;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    justify-items: center;
+    overflow: hidden;
+    gap: 20px;
+}
+
+.category-card > img {
+    height: 30vh;
+    object-fit: cover;
+}
+
+.category_container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 20px;
 }

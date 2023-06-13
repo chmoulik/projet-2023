@@ -7,9 +7,7 @@
         </button>
         <div class="collapse navbar-collapse justify-content-between align-items-center" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= BASE_PATH ?>/categorie">Categorie</a>
-                </li>
+
                 <?php
                 if (!isConnect()) {
                 ?>

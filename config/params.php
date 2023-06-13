@@ -17,6 +17,22 @@ const CONFIG = [
     ]
 ];
 
+
+
+
+// const CONFIG = [
+//     'db' => [
+//         'DB_HOST' => 'localhost',
+//         'DB_PORT' => '3306',
+//         'DB_NAME' => 'u122269387_dv22aziza',
+//         'DB_USER' => 'u122269387_dv22aziza',
+//         'DB_PSWD' => 'Fwyv4vo3UPmSXqFJ',
+//     ],
+//     'app' => [
+//         'name' => 'u122269387_dv22aziza',
+//         'projectBaseUrl' => 'https://mjm03.fr/dv22aziza' //= index/accueil
+//     ]
+// ];
 /**
  * Constantes pour accéder rapidement aux dossiers importants du MVC
  */
@@ -28,7 +44,7 @@ const MODELS = BASE_DIR . 'src/models/';
 const CONTROLLERS = BASE_DIR . 'src/controllers/';
 const PHOTO = BASE_DIR . 'public/upload/';
 const COVER = '../../public/upload/';
-const ASSETS = '../../assets/';
+const ASSETS = CONFIG['app']['projectBaseUrl'] . '/assets/';
 
 // echo BASE_PATH;
 //print_r(VIEWS);
@@ -51,13 +67,11 @@ $routes = [ //  Route : utilisateur.
 
     // routes : nouvel article.
     '/new-produit' => ['ProduitController', 'new_produit'],
-    '/categorie' => ['ProduitController', 'show_categories'],
+    '/' => ['ProduitController', 'show_categories'],
     '/articles' => ['ProduitController', 'articles'],
     '/article' => ['ProduitController', 'article'],
     '/add_panier' => ['ProduitController', 'add_panier'],
     '/panier' => ['ProduitController', 'panier'],
-
-
 
 
 
