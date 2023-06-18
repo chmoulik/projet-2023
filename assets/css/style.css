@@ -1,14 +1,129 @@
-h1 {
-    background-color: coral;
+:root {
+    --seize: normal 400 16px/1.4 "Lato", sans-serif;
+    --vingt: normal 400 20px/1.4 "Lato", sans-serif;
+    --vingt-quatre: normal 400 24px/1.4 "Lato", sans-serif;
+    --trente_deux: normal 400 32px/1.4 "Lato", sans-serif;
+    --QUARANTE: normal 700 40px/1.4 "Lato", sans-serif;
 }
 
-#maNav a.nav-link,
-#maNav a.navbar-brand {
+/* navbar */
+.text > h1 {
+    font: var(--trente_deux);
+}
+header {
+    background-color: #03658c;
+    list-style: none;
+    height: 80px;
+    color: white;
+    font-family: Lato;
+    font-weight: bold;
+    padding: 25px;
+}
+
+header a {
     color: white;
 }
 
+header .logo {
+    display: inline-block;
+}
+
+header .logo img {
+    width: 200px;
+}
+
+header .navbar {
+    display: inline-block;
+    margin-left: 100px;
+}
+
+header .navbar a {
+    text-decoration: none;
+    font-size: 22px;
+    padding-right: 25px;
+
+}
+
+.suivez-nous {
+    /* border: solid rgb(41, 26, 255); */
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin-top: 50px;
+}
+li {
+    list-style: none;
+    display: inline;
+}
+
+
+.container {
+    display: block;
+    grid-template-columns: repeat(2, 1fr);
+}
+.container  p /* bonjour ... */ {
+    color: rgb(255, 255, 255);
+    display: inline-block;
+    grid-template-columns: 1fr 1fr 1fr;
+    
+}
+/* FIN de navbar */
+
+h2 {
+    font-family: Lato;
+    font-weight: bold;
+    font-size: 35px;
+}
+
+.h2 {
+    padding: 25px 25px 0;
+}
+
+/* image de la page index */
+.container_image {
+    display: inline-block;
+    position: relative;
+    background-image:url("../assets/img/image_index.jpeg");
+    width: 100%;
+}
+.container_image .text,
+.bouton_decouvre {
+    z-index: 1;
+    position: absolute;
+    text-align: left;
+    font-family: Georgia;
+    /* margin: 0 auto; */
+    left: 5%;
+    top: 20%;
+    color: white;
+    width: 70%;
+}
+
+.bouton_decouvre {
+    z-index: 1;
+    position: absolute;
+    text-align: left;
+    left: 5%;
+    top: 30%;
+    color: white;
+    background-color: #3d3737;
+    width: 5%;
+    left: 4%;
+    text-align: center;
+    margin: 10px;
+}
+
+.bouton_decouvre a {
+    color: white;
+    text-decoration: none;
+    background-color: #3d3737;
+    padding: 5px 20px;
+    border-radius: 4px;
+}
+/* FIN image de la page index */
+/*  categorie de la page index */
 .category-card {
-    background-color: aqua;
+    background-color: #51818c;
     padding: 20px;
     display: grid;
     grid-template-rows: max-content min-content;
@@ -29,4 +144,116 @@ h1 {
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     margin: 20px;
+}
+
+
+.recommended_product {
+    background-color: #03658c;
+    padding: 25px;
+    color: white;
+    font-family: Lato;
+}
+
+.recommanded_product_item {
+    display: inline-block;
+    background-color: white;
+    width: 30%;
+    color: black;
+    text-align: center;
+    padding: 20px;
+    margin-left: 25px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.recommended_product h2 {
+    color: white;
+}
+
+.about {
+    padding: 50px;
+    max-width: 950px;
+    margin: 0 auto;
+    font-family: Lato;
+}
+
+.about .alpha {
+    display: inline-block;
+    padding: 50px;
+    
+}
+.about .alpha img {
+    
+}
+.about tr td {
+    padding: 50px;
+}
+/* FIN categorie de la page index */
+
+footer {
+    background-color: #03658c;
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+footer a {
+    text-decoration: none;
+    width: 100%;
+    color: aliceblue;
+    font: var(--seize);
+    margin: 3% 5%;
+    line-height: 1.8em;
+}
+footer h1 {
+    font: var(--vingt);
+    margin-bottom: 3%;
+    margin: 3% 5%;
+}
+.copyright {
+    margin-top: 25px;
+}
+
+.newsletter {
+    background-color: rgb(175, 66, 66);
+    width: 100%;
+    height: 3%;
+}
+
+.icons {
+    float: right;
+}
+
+.icons img {
+    width: initial;
+    padding-left: 15px;
+    vertical-align: middle;
+}
+
+.container_categ {
+    padding: 50px;
+    background-color: #ececec;
+}
+
+.product_item {
+    display: inline-block;
+    margin: 30px;
+    background: white;
+    padding: 20px;
+}
+
+.product_item img {
+    max-width: 200px;
+}
+
+.product_item h3 {
+    font-family: Lato;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 640px) {
+    header {
+        height: auto;
+    }
 }

@@ -26,9 +26,11 @@ class ProduitController
             }
 
             if (isset($_FILES["photo"])) {
-                $name = "produit-" . time() . "-" . uniqid() . "-" . $_FILES["photo"]["name"];
+                // $name = "produit-" . time() . "-" . uniqid() . "-" . $_FILES["photo"]["name"];
+                $name = $_FILES["photo"]["name"];
 
-                $destination = $_SERVER["DOCUMENT_ROOT"] . "/php/projet_2023/assets/img/" . $name;
+                $destination = ASSETS . "img/" . $name;
+                
 
                 if (move_uploaded_file($_FILES["photo"]["tmp_name"], $destination)) {
                 }
