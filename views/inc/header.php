@@ -1,79 +1,60 @@
 <header>
-    
-        <div class="container">
-            <a class="logo" href="<?= BASE_PATH ?>"><img src="<?= ASSETS ?>img/logo.PNG" alt=""></a>
+
+    <div class="container">
+        <a class="logo" href="<?= BASE_PATH ?>"><img src="<?= ASSETS ?>img/logo.PNG" alt=""></a>
 
 
-                <nav class="navbar">
-                <?php
-                if (!isConnect()) {
-                ?>
+        <nav class="navbar">
+            <?php
+            if (!isConnect()) {
+            ?>
+                <a href="<?= BASE_PATH ?>">Accueil</a>
+                <a href="<?= BASE_PATH ?>/articles?id=1">Bureaux</a>
+                <a href="<?= BASE_PATH ?>/articles?id=3">Siège ergonomique</a>
+                <a href="<?= BASE_PATH ?>/articles?id=4">Accessoires</a>
+                <a href="<?= BASE_PATH ?>/connexion">C...</a>
+            <?php
+            }
 
-                    <a href="<?= BASE_PATH ?>">Accueil</a>
-                    <a href="<?= BASE_PATH ?>/articles?id=1">Bureaux</a>
-                    <a href="<?= BASE_PATH ?>/articles?id=3">Siège ergonomique</a>
-                    <a href="<?= BASE_PATH ?>/articles?id=4">Accessoires</a>
-                    <!-- <a href="<?= BASE_PATH ?>/inscription">Inscription</a>
-                    
+            if (isConnect()) {
+            ?>
+                <a href="<?= BASE_PATH ?>/profil">Profil</a>
+                <a href="<?= BASE_PATH ?>/deconnexion">Deconnexion</a>
+            <?php
+            }
 
-                    <a href="<?= BASE_PATH ?>/connexion">Connexion</a> -->
+            if (isAdmin()) {
+            ?>
+                <a href="<?= BASE_PATH ?>/alluser">Liste utilisateur</a>
+                <a href="<?= BASE_PATH ?>/new-produit">produits</a>
+            <?php
+            }
+            ?>
 
-                <?php
-                }
+            <?php
+            if (isConnect()) {
+            ?>
+                <p class="">Bonjour <?= ucfirst($_SESSION["user"]["login"]) ?></p>
+            <?php
+            }
+            ?>
+        </nav>
+
+        <nav class="icons">
+            <a href=""><img src="<?= ASSETS ?>img/ic-loupe.PNG" alt="">
+            </a><a href="<?= BASE_PATH ?>/connexion">
+                <img src="<?= ASSETS ?>img/ic-profile.PNG" alt="">
+            </a><?php
                 if (isConnect()) {
-                ?>
-                    <a href="<?= BASE_PATH ?>/profil">Profil</a>
+                ?><a href="<?= BASE_PATH ?>/panier">
+                    <img src="<?= ASSETS ?>img/ic-panier.PNG" alt="" id="number_cart" href="<?= BASE_PATH ?>/panier">
+                    <span><?= $_SESSION['panier']->getProduct_number() ?></span>
 
-                    <a href="<?= BASE_PATH ?>/deconnexion">Deconnexion</a>
-
-
-                <?php
+                </a>
+            <?php
                 }
-                if (isAdmin()) {
-                ?>
+            ?>
 
-                    <a href="<?= BASE_PATH ?>/alluser">Liste utilisateur</a>
-
-
-                    <a href="<?= BASE_PATH ?>/new-produit">produits</a>
-
-                <?php
-                }
-                ?>
-                <?php if (isConnect() && !isAdmin()) : ?>
-
-                    <a href="<?= BASE_PATH ?>/panier">Panier (<?= $_SESSION['panier']->getProduct_number() ?>)</a>
-
-                <?php endif; ?>
-
-                <?php
-                if (isConnect()) {
-                ?>
-                    <p class="">Bonjour <?= ucfirst($_SESSION["user"]["login"]) ?></p>
-                <?php
-                }
-                ?>
-                </nav>
-
-                <nav class="icons">
-                    <a href=""><!--
-                        --><img src="<?= ASSETS ?>img/ic-loupe.PNG" alt=""><!--
-                    --></a><a href="<?= BASE_PATH ?>/connexion"><!--
-                        --><img src="<?= ASSETS ?>img/ic-profile.PNG" alt=""><!--
-                    --></a><?php
-                if (isConnect()) {
-                    ?><a href="<?= BASE_PATH ?>/panier"><!--
-                        --><img src="<?= ASSETS ?>img/ic-panier.PNG" alt=""><!--
-                    --></a>
-                    <?php
-                }
-                ?>
-                    
-                </nav>
-                
-
-            
-        </div>
-    
+        </nav>
+    </div>
 </header>
-

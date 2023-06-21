@@ -1,26 +1,5 @@
 <?php
 
-/**
- * Fichier contenant la configuration de l'application
- */
-const CONFIG = [
-    'db' => [
-        'DB_HOST' => 'localhost',
-        'DB_PORT' => '3306',
-        'DB_NAME' => 'u122269387_dv22aziza',
-        'DB_USER' => 'u122269387_dv22aziza',
-        'DB_PSWD' => 'Fwyv4vo3UPmSXqFJ',
-    ],
-    'app' => [
-        'name' => 'projet_2023',
-        // 'projectBaseUrl' => 'http://localhost:8888/php/projet_2023/public' //= index/accueil
-        'projectBaseUrl' => 'https://simon.lozako.dev' //= index/accueil
-    ]
-];
-
-
-
-// server 
 
 // const CONFIG = [
 //     'db' => [
@@ -31,14 +10,30 @@ const CONFIG = [
 //         'DB_PSWD' => 'Fwyv4vo3UPmSXqFJ',
 //     ],
 //     'app' => [
-//         'name' => 'u122269387_dv22aziza',
+//         'name' => 'projet_2023',
 //         'projectBaseUrl' => 'https://mjm03.fr/dv22aziza' //= index/accueil
 //     ]
 // ];
-/**
 
- * Constantes pour accéder rapidement aux dossiers importants du MVC
- */
+
+// server 
+
+const CONFIG = [
+    'db' => [
+        'DB_HOST' => 'localhost',
+        'DB_PORT' => '3306',
+        'DB_NAME' => 'projet_2023',
+        'DB_USER' => 'root',
+        'DB_PSWD' => 'root',
+    ],
+    'app' => [
+        'name' => 'projet_2023',
+        'projectBaseUrl' => 'http://localhost:8888/php/projet_2023' //= index/accueil
+    ]
+];
+
+//  * Constantes pour accéder rapidement aux dossiers importants du MVC
+//  */
 const BASE_DIR = __DIR__ . '/../';
 const BASE_PATH = CONFIG['app']['projectBaseUrl'] . '/public/index.php';
 const PUBLIC_FOLDER = BASE_DIR . 'public/';

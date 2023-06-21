@@ -21,17 +21,7 @@ $_SESSION["message"] = "";
         <label for="floatingPassword">Mot de Passe</label>
     </div>
     <input type="submit" class="btn btn-primary mt-3" value="Connexion">
-    <a href="<? BASE_PATH ?>inscription"><button class="btn btn-danger mt-3" type="button">Inscription</button></a>
+    <a href="<?= BASE_PATH ?>/inscription"><button class="btn btn-danger mt-3" type="button">Inscription</button></a>
 </form>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <?php
 require(VIEWS . 'inc/footer.php');

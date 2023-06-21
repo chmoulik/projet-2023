@@ -44,7 +44,7 @@ if (!isConnect()) header("location:" . BASE_PATH . "/connexion");
 
     <div class="form-floating mb-3">
         <input type="password" value=" <?= $_SESSION['user']["password"] ?>" id="password" name="password" class="form-control" placeholder="Mot de passe" required>
-        <label for="password">Mot de passe</label>
+        <label for="password">Nouveau mot de passe</label>
     </div>
 
     <input class="btn btn-primary" type="submit" value="Modifier" name="submit">

@@ -16,14 +16,14 @@ require(VIEWS . 'inc/header.php');
 
 </div>
 
-<div class="h2">
+<div class="Catégories">
     <h2>Catégories</h2>
 </div>
 
 
 <div class=" category_container">
-    
-    
+
+
     <?php foreach ($categoris as $valeur) : ?>
 
         <a href="<?= BASE_PATH ?>/articles?id=<?= $valeur['id_categorie'] ?>" class="category-card">
@@ -35,26 +35,22 @@ require(VIEWS . 'inc/header.php');
     <?php endforeach; ?>
 </div>
 
-<div class="recommended_product"> 
+<div class="recommended">
     <h2>Nos produits recommandés</h2>
-    <br>
-    <div class="recommanded_product_item">
-        <img src="https://simon.lozako.dev/assets/img/bureau.png" alt="">
-        <br>
+    <div class="recommanded_product">
+        <a href=""><img src="<?= ASSETS ?>img/images.jpg" alt=""></a>
         <h4>Nom du produit</h4>
         <p class="price">39€</p>
     </div>
 
-    <div class="recommanded_product_item">
-        <img src="https://simon.lozako.dev/assets/img/bureau.png" alt="">
-        <br>
+    <div class="recommanded_product">
+        <a href=""><img src="<?= ASSETS ?>img/GUEST_9bba0261-1a73-4fb5-8ea2-882465d4c9e4.jpeg" alt=""></a>
         <h4>Nom du produit</h4>
         <p class="price">39€</p>
     </div>
 
-    <div class="recommanded_product_item">
-        <img src="https://simon.lozako.dev/assets/img/bureau.png" alt="">
-        <br>
+    <div class="recommanded_product">
+        <a href=""><img src="<?= ASSETS ?>img/siege-baquet-de-bureau-renault-sport-0_1.png" alt=""></a>
         <h4>Nom du produit</h4>
         <p class="price">39€</p>
     </div>
@@ -64,21 +60,20 @@ require(VIEWS . 'inc/header.php');
     <table>
         <tr>
             <td>
-                <img src="https://simon.lozako.dev/assets/img/bureau.png" alt="">
+                <img src="<?= ASSETS ?>img/download.jpg" alt="">
             </td>
             <td>
-            <h2>À propos</h2>
-            <br>
-            <p>
-            INFORMATIDESK : LE BIEN-ÊTRE AU TRAVAIL, C'EST POSSIBLE
+                <h4 class="a_propos">À propos</h4>
+                <p>
+                    INFORMATIDESK : le bien-être au travail, c'est possible</p>
 
-            La naissance d INFORMATIDESK est venue d un constat
-            saisissant : être assis à son bureau des heures durant nuit
-            directement à votre santé. Il est temps de remettre la
-            qualité de votre environnement, l’ergonomie, le confort et
-            le bien-être au travail au centre de vos priorités, pour
-            préserver votre forme physique et intellectuelle !
-            </p>
+                La naissance d INFORMATIDESK est venue d un constat
+                saisissant : être assis à son bureau des heures durant nuit,
+                directement à votre santé. Il est temps de remettre la
+                qualité de votre environnement, l’ergonomie, le confort et
+                le bien-être au travail au centre de vos priorités, pour
+                préserver votre forme physique et intellectuelle !
+                </p>
             </td>
         </tr>
     </table>

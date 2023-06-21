@@ -25,29 +25,29 @@
 
 
         <div class="suivez-nous">
-        <h1>Suivez-nous<h1>
-                <ul>
-                    <li>
-                        <a href="#"><iconify-icon icon="jam:twitter-circle" width="18px" alt="tiktok"></iconify-icon>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#"><iconify-icon icon="mingcute:facebook-line" width="18px" alt="tiktok"></iconify-icon>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#"><iconify-icon icon="iconoir:tiktok" alt="tiktok" width="18px"></iconify-icon>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#"><iconify-icon icon="simple-icons:instagram" alt="instagram" width="18px"></iconify-icon></a>
-                    </li>
-                </ul>
-    </div>
+            <h1>Suivez-nous<h1>
+                    <ul>
+                        <li>
+                            <a href="#"><iconify-icon icon="jam:twitter-circle" width="18px" alt="tiktok"></iconify-icon>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"><iconify-icon icon="mingcute:facebook-line" width="18px" alt="tiktok"></iconify-icon>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"><iconify-icon icon="iconoir:tiktok" alt="tiktok" width="18px"></iconify-icon>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"><iconify-icon icon="simple-icons:instagram" alt="instagram" width="18px"></iconify-icon></a>
+                        </li>
+                    </ul>
+        </div>
     </div>
 
 
-    
+
 </footer>
 </body>
 

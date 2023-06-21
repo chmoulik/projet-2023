@@ -11,7 +11,7 @@ require(VIEWS . 'inc/header.php');
         <th>Titre</th>
         <th>Prix</th>
         <th>Quantité</th>
-        <th>Total</th>
+        <th class="total">Total</th>
         <th>Actions</th>
     </tr>
     <?php $compteur = 0; ?>
@@ -33,7 +33,7 @@ require(VIEWS . 'inc/header.php');
                 ?>
             </td>
             <td>
-                <button>Supprimer</button>
+                <button>X</button>
             </td>
         </tr>
     <?php endforeach; ?>
