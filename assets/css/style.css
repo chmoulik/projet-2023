@@ -10,6 +10,7 @@
     --blue: #51818c;
     --black: #000000;
     --grey: #e9ecf2;
+    --sable: #d9bca3;
 }
 
 /* navbar */
@@ -24,6 +25,8 @@ header {
     font-family: Lato;
     font-weight: bold;
     padding: 25px;
+    display: flex;
+    justify-content: space-between;
 }
 
 header a {
@@ -33,53 +36,52 @@ header a {
 }
 
 .number {
-    color: black;
+    color: rgb(129, 83, 83);
 }
 
 #number_cart {
-    position: absolute;
-    border: #f51212 solid;
-    display: grid;
-    grid-template-columns: repeat(0fr 0fr 1fr);
+    position: relative;
 }
 
-header .logo {
+span {
+    color: red;
+}
+
+.logo {
     display: inline-block;
 }
 
-header .logo img {
-    width: 200px;
+.logo img {
+    width: 190px;
 }
 
-header .navbar {
+.navbar {
     display: inline-block;
-    margin-left: 100px;
+    position: relative;
+    top: 8px;
 }
 
-header .navbar a {
+.navbar a {
     text-decoration: none;
-    font-size: 22px;
+    font-size: 18px;
     padding-right: 25px;
 }
 
-.container {
-    display: block;
-    grid-template-columns: repeat(2, 1fr);
-}
 .container  p /* bonjour [NOM] */ {
-    color: var(--white);
+    color: var(--black);
     display: inline-block;
     grid-template-columns: repeat(3, 1fr);
 }
 
 .icons {
     float: right;
-    border: solid rgb(180, 226, 29);
+    display: flex;
 }
 .icons img {
     width: initial;
     padding-left: 15px;
     vertical-align: middle;
+    height: 4vh;
 }
 /* FIN de navbar */
 
@@ -257,6 +259,69 @@ li {
     margin-top: 25px;
 }
 /* FIN footer */
+/* FIN page index */
+
+/* PAGE ARTICLES */
+body {
+    background-color: #e9ecf2;
+}
+.container_desks {
+    margin: 107px 50px 107px;
+}
+
+.container_desks a {
+    text-decoration: none;
+    color: var(--sable);
+}
+.container_desks h2 {
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}
+
+.product_item {
+    /* height: 35vh;
+    width: 18vh; */
+    text-align: center;
+    border: solid var(--sable) 0.1em;
+    background-color: white;
+    padding: 10px;
+    line-height: 2em;
+}
+
+.product_price {
+    display: grid;
+    grid: auto / repeat(4, 1fr);
+    grid-gap: 50px 20px;
+}
+
+/* PAGE ARTICLE */
+.Breadcrumb a {
+    text-decoration: none;
+    color: var(--sable);
+    text-transform: capitalize;
+}
+
+.Breadcrumb h2:nth-child(-n + 1) {
+    text-transform: capitalize;
+    margin: 107px 20px 20px;
+}
+
+.item {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#item_description {
+    align-items: center;
+    border: rgb(0, 255, 145) solid;
+}
+.img_of_items {
+    border: rgb(221, 40, 181) solid;
+}
+
+.add_to_cart {
+    border: rgb(253, 231, 65) solid;
+}
 
 /* RESPONSIVE */
 @media screen and (max-width: 640px) {

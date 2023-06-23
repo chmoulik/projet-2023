@@ -51,3 +51,6 @@ if (!isConnect()) header("location:" . BASE_PATH . "/connexion");
 
 
 </form>
+
+<?php
+include(VIEWS . "./inc/footer.php");

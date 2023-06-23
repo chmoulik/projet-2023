@@ -26,11 +26,12 @@ class ProduitController
             }
 
             if (isset($_FILES["photo"])) {
-                // $name = "produit-" . time() . "-" . uniqid() . "-" . $_FILES["photo"]["name"];
-                $name = $_FILES["photo"]["name"];
+                $name = "produit-" . time() . "-" . uniqid() . "-" . $_FILES["photo"]["name"];
 
-                $destination = ASSETS . "img/" . $name;
-                
+
+
+                $destination = BASE_DIR . "assets/img/" . $name;
+
 
                 if (move_uploaded_file($_FILES["photo"]["tmp_name"], $destination)) {
                 }
@@ -85,7 +86,7 @@ class ProduitController
             'quantity' => 1
         );
 
-        $_SESSION['panier']->add_article($article_panier);
+        $_SESSION["panier"]->add_article($article_panier);
 
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }

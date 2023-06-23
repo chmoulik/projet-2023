@@ -1,0 +1,26 @@
+{% from '_render_fields.html' import render_field %}
+
+
+{% extends "layout.html" %}
+
+{% block my_content %}
+<div class="content-section">
+    <form method="post" action="">
+        <!--        hidden tag is used in concordance with the secret key in run.py for security & protection reasons -->
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Post form</legend>
+                {{ render_field(form.title) }}
+                {{ render_field(form.content) }}
+        </fieldset>
+        <div class="form-group">
+            {{form.submit(class="btn btn-outline-info") }}
+        </div>
+
+    </form>
+</div>
+
+
+
+
+{% endblock my_content %}

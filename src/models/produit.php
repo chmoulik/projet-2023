@@ -18,12 +18,12 @@ class Produit extends Db
                 htmlspecialchars($name),
             ]
         );
-        // print_r($_POST);
 
+
+        //lier l'id de l'article avec l'id de la categorie.
         $reponse = self::prepare(
             "INSERT INTO `article_categorie` (article_id, categorie_id) VALUES (?,?)",
             [
-                //a regler plus tard le id les jointures.
                 $_SESSION['last_id'],
                 htmlspecialchars($_POST["choix_categorie"]),
 

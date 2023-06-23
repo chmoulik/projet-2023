@@ -31,11 +31,11 @@ class  Db
         $reponse = $prepare->execute($values);
         if ($reponse) {
             if ($bool == true) {
-                $result = $prepare->fetch(); // tout les champ d'une ligne, si true.
+                $result = $prepare->fetch();
                 $_SESSION['last_id'] = $database->lastInsertId();
                 return $result;
             } else {
-                $result = $prepare->fetchAll(); // tout les champ d'une ligne, si true.
+                $result = $prepare->fetchAll();
                 $_SESSION['last_id'] = $database->lastInsertId();
                 return $result;
             }

@@ -31,24 +31,19 @@ require(VIEWS . 'inc/header.php');
                 <?php
                 $compteur += $value['data']['prix'] * $value['quantity'];
                 ?>
+
             </td>
             <td>
-                <button>X</button>
+                <button type="submit">X</button>
+
             </td>
         </tr>
     <?php endforeach; ?>
     <tr>
-        <td></td>
-        <td></td>
+
         <td>TOTAL</td>
         <td><?= monify($compteur) ?></td>
     </tr>
 </table>
-
-
-
-
-
-
 <?php
 include(VIEWS . "./inc/footer.php");
