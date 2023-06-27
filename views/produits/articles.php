@@ -10,7 +10,7 @@ require(VIEWS . 'inc/header.php');
 
     <h2><a href="<?= BASE_PATH ?>">Accueil ></a><?= " " .  $categorie['nom_de_categorie'] ?></h2>
 
-    <div class=" product_price">
+    <div class=" product_and_price">
         <?php foreach ($articles as $valeur) : ?>
 
             <div class="product_item">

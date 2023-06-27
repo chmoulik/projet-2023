@@ -5,10 +5,9 @@ require(VIEWS . 'inc/header.php');
 
 ?>
 
+<h1 id="connexion">Ajouter un nouveau produit</h1>
 
-<h1>Ajouter un nouveau produit</h1>
-
-<form method="POST" enctype="multipart/form-data" action="" class="w-50 mx-auto">
+<form method="POST" enctype="multipart/form-data" action="" class="w-50 mx-auto" id="form">
     <?= isset($_SESSION["message"]) ? $_SESSION["message"] : "";
     $_SESSION["message"] = "";
     ?>

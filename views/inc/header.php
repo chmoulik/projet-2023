@@ -2,11 +2,15 @@
     <a class="logo" href="<?= BASE_PATH ?>"><img src="<?= ASSETS ?>img/logo.PNG" alt=""></a>
 
 
-    <nav class="navbar">
+    <nav class="navbar" class="sid_nav" id="burger">
+
+
+
         <?php
         if (!isConnect() or (isConnect())) {
         ?>
             <!-- <a href="<?= BASE_PATH ?>">Accueil</a> -->
+
             <a href="<?= BASE_PATH ?>/articles?id=1">Bureaux</a>
             <a href="<?= BASE_PATH ?>/articles?id=3">Siège ergonomique</a>
             <a href="<?= BASE_PATH ?>/articles?id=4">Accessoires</a>

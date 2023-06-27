@@ -68,5 +68,6 @@ $routes = [ //  Route : utilisateur.
     '/article' => ['ProduitController', 'article'],
     '/add_panier' => ['ProduitController', 'add_panier'],
     '/panier' => ['ProduitController', 'panier'],
+    '/supprimer' => ['AppController', 'requestFromCart'],
 
 ];

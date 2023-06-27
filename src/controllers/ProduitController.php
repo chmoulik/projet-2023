@@ -28,10 +28,7 @@ class ProduitController
             if (isset($_FILES["photo"])) {
                 $name = "produit-" . time() . "-" . uniqid() . "-" . $_FILES["photo"]["name"];
 
-
-
                 $destination = BASE_DIR . "assets/img/" . $name;
-
 
                 if (move_uploaded_file($_FILES["photo"]["tmp_name"], $destination)) {
                 }
@@ -40,11 +37,10 @@ class ProduitController
                 }
             }
             if (isset($_SESSION['message']) and empty($_SESSION['message'])) {
-                Produit::insert($name); //a regler plus tard le id en jointure.
+                Produit::insert($name);
             }
         }
         $listCategorie = Categorie::readAllCategories();
-        // print_r($listCategorie);
 
         include VIEWS . "./produits/new-produit.php";
     }
@@ -54,7 +50,6 @@ class ProduitController
         $categoris = Db::query("SELECT * FROM `categorie`");
         include VIEWS . "./produits/categorie.php";
     }
-
 
     public static function articles()
     {

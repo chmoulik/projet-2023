@@ -65,9 +65,6 @@ class User extends Db
 		return $update;
 	}
 
-
-
-
 	// Requete : supprimer utilisateur.
 	public static function deleteUser($id)
 	{

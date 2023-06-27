@@ -10,6 +10,7 @@ class UserController
 		$_SESSION['message'] = "";
 
 		if (isset($_POST) and !empty($_POST)) {
+
 			if (empty($_POST['first_name']) or !isset($_POST['first_name'])) {
 				$_SESSION['message'] .= "Ecrire le prénom <br>";
 			}
@@ -25,7 +26,9 @@ class UserController
 			if (empty($_POST['password']) or !isset($_POST['password'])) {
 				$_SESSION['message'] .= "Ecrire le mot de passe <br>";
 			}
+
 			if (isset($_SESSION['message']) and empty($_SESSION['message'])) {
+
 				User::insert();
 				$_SESSION['message'] .= " Votre compte a bien été créé " . $_POST['first_name'];
 			}

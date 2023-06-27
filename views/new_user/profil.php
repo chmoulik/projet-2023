@@ -12,8 +12,8 @@ if (!isConnect()) header("location:" . BASE_PATH . "/connexion");
 // print_r($_SESSION);
 ?>
 
-<h1 class="text-center my-5">Modifier vos informations</h1>
-<form method="POST" action="" class="w-50 mx-auto">
+<h1 class="text-center my-5" id="connexion">Modifier vos informations</h1>
+<form method="POST" action="" class="w-50 mx-auto" id="form">
 
     <?= isset($_SESSION["message"]) ? $_SESSION["message"] : "";
     $_SESSION["message"] = "" . '<br><br><br>';
@@ -41,15 +41,12 @@ if (!isConnect()) header("location:" . BASE_PATH . "/connexion");
         <label for="email">Mail</label>
     </div>
 
-
     <div class="form-floating mb-3">
-        <input type="password" value=" <?= $_SESSION['user']["password"] ?>" id="password" name="password" class="form-control" placeholder="Mot de passe" required>
+        <input type="password" value="" id="password" name="password" class="form-control" placeholder="Mot de passe" required>
         <label for="password">Nouveau mot de passe</label>
     </div>
 
     <input class="btn btn-primary" type="submit" value="Modifier" name="submit">
-
-
 </form>
 
 <?php

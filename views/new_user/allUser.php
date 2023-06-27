@@ -17,13 +17,9 @@ $requete = Db::query("SELECT * FROM `user`");
 </pre> -->
 
 
-<h1 class="text-center my-5">Liste des utilisateurs</h1>
+<h1 class="text-center my-5" id="crud">Liste des utilisateurs</h1>
 <!-- <div class="table-responsive-md"> -->
-<table class="table table-hover container ">
-
-    <br>
-    <br>
-    <br>
+<table class="table table-hover container " id="table">
     <?= isset($_SESSION["message"]) ? $_SESSION["message"] : "";
     $_SESSION["message"] = "" ?>
 
@@ -37,6 +33,8 @@ $requete = Db::query("SELECT * FROM `user`");
             <th scope="col">Mail</th>
             <th scope="col">Mot de passe</th>
             <th scope="col">Statut</th>
+            <th scope="col">Supprimer</th>
+            <th scope="col">Modifier</th>
 
         </tr>
     </thead>

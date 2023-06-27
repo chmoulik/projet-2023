@@ -19,24 +19,18 @@ require(VIEWS . 'inc/header.php');
 <div class="Catégories">
     <h2>Catégories</h2>
 </div>
-
-
 <div class=" category_container">
-
-
     <?php foreach ($categoris as $valeur) : ?>
-
         <a href="<?= BASE_PATH ?>/articles?id=<?= $valeur['id_categorie'] ?>" class="category-card">
             <img src="<?= ASSETS ?>img/<?= $valeur['image'] ?>" alt="">
             <h2><?= $valeur['nom_de_categorie'] ?> </h2>
-
         </a>
-
     <?php endforeach; ?>
 </div>
 
+
+<h2 class="recommended_items">Nos produits recommandés</h2>
 <div class="recommended">
-    <h2>Nos produits recommandés</h2>
     <div class="recommanded_product">
         <a href=""><img src="<?= ASSETS ?>img/images.jpg" alt=""></a>
         <h4>Nom du produit</h4>
@@ -44,7 +38,7 @@ require(VIEWS . 'inc/header.php');
     </div>
 
     <div class="recommanded_product">
-        <a href=""><img src="<?= ASSETS ?>img/GUEST_9bba0261-1a73-4fb5-8ea2-882465d4c9e4.jpeg" alt=""></a>
+        <a href=""><img src="<?= ASSETS ?>img/images_webcam.jpeg" alt=""></a>
         <h4>Nom du produit</h4>
         <p class="price">39€</p>
     </div>
@@ -60,7 +54,7 @@ require(VIEWS . 'inc/header.php');
     <table>
         <tr>
             <td>
-                <img src="<?= ASSETS ?>img/download.jpg" alt="">
+                <img src="<?= ASSETS ?>img/61YAIh41WFL._AC_SX679_.jpg" alt="">
             </td>
             <td>
                 <h4 class="a_propos">À propos</h4>

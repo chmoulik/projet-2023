@@ -41,6 +41,11 @@ class Panier
     }
 
     public function deleteArticlePanier()
+
     {
+        $this->product_number = $this->product_number - $this->panier[$_POST['id']]["quantity"];
+
+
+        unset($this->panier[$_POST['id']]);
     }
 }
