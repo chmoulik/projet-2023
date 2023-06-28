@@ -1,5 +1,7 @@
 <?php
 require_once('../views/inc/function.php');
+require_once('../src/controllers/PanierController.php');
+
 
 function isConnect()
 {
@@ -20,9 +22,9 @@ function isAdmin()
     return true;
 }
 
-if (isConnect() && !isAdmin()) {
+// if (isConnect() && !isAdmin()) {
 
-    if (!isset($_SESSION['panier'])) {
-        $_SESSION['panier'] = new Panier();
-    }
+if (!isset($_SESSION['panier'])) {
+    $_SESSION['panier'] = new Panier();
 }
+// }

@@ -8,7 +8,7 @@
         Découvrez nos bureaux assis-debout, nos sièges érgonomique et nos accessoirs. 
         nos derniers produits recommandés, et bien plus encore.">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>$title</title>
+    <title>InformatiDesk</title>
 
     <!-- link css  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

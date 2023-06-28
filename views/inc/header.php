@@ -1,3 +1,6 @@
+<?php
+print_r($_SESSION['panier']);
+?>
 <header class="container">
     <a class="logo" href="<?= BASE_PATH ?>"><img src="<?= ASSETS ?>img/logo.PNG" alt=""></a>
 
@@ -61,7 +64,7 @@
                 if (isConnect()) {
                 ?><a href="<?= BASE_PATH ?>/panier">
                     <img src="<?= ASSETS ?>img/panier.svg" alt="" id="number_cart" href="<?= BASE_PATH ?>/panier">
-                    <span><?= $_SESSION['panier']->getProduct_number() ?></span>
+
                 </a>
             <?php
                 }

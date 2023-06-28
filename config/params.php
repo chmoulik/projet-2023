@@ -1,36 +1,39 @@
 <?php
 
 
-// const CONFIG = [
-//     'db' => [
-//         'DB_HOST' => 'localhost',
-//         'DB_PORT' => '3306',
-//         'DB_NAME' => 'u122269387_dv22aziza',
-//         'DB_USER' => 'u122269387_dv22aziza',
-//         'DB_PSWD' => 'Fwyv4vo3UPmSXqFJ',
-//     ],
-//     'app' => [
-//         'name' => 'projet_2023',
-//         'projectBaseUrl' => 'https://mjm03.fr/dv22aziza' //= index/accueil
-//     ]
-// ];
-
-
-// server 
-
 const CONFIG = [
     'db' => [
         'DB_HOST' => 'localhost',
         'DB_PORT' => '3306',
-        'DB_NAME' => 'projet_2023',
-        'DB_USER' => 'root',
-        'DB_PSWD' => 'root',
+        'DB_NAME' => 'u122269387_dv22aziza',
+        'DB_USER' => 'u122269387_dv22aziza',
+        'DB_PSWD' => 'Fwyv4vo3UPmSXqFJ',
     ],
     'app' => [
         'name' => 'projet_2023',
-        'projectBaseUrl' => 'http://localhost:8888/php/projet_2023' //= index/accueil
+        'projectBaseUrl' => 'https://mjm03.fr/dv22aziza'
     ]
 ];
+
+
+
+// const CONFIG = [
+//     'db' => [
+//         'DB_HOST' => 'localhost',
+//         'DB_PORT' => '3306',
+//         'DB_NAME' => 'projet_2023',
+//         'DB_USER' => 'root',
+//         'DB_PSWD' => 'root',
+//     ],
+//     'app' => [
+//         'name' => 'projet_2023',
+//         'projectBaseUrl' => 'http://localhost:8888/php/projet_2023' //= index/accueil
+//     ]
+// ];
+
+
+
+
 
 //  * Constantes pour accéder rapidement aux dossiers importants du MVC
 //  */
