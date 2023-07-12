@@ -1,8 +1,8 @@
 <?php
-print_r($_SESSION['panier']);
+
 ?>
 <header class="container">
-    <a class="logo" href="<?= BASE_PATH ?>"><img src="<?= ASSETS ?>img/logo.PNG" alt=""></a>
+    <a class="logo" href="<?= BASE_PATH ?>"><img src="<?= ASSETS ?>img/logo.png" alt=""></a>
 
 
     <nav class="navbar" class="sid_nav" id="burger">
@@ -57,8 +57,9 @@ print_r($_SESSION['panier']);
     <?php if (!isAdmin()) {
     ?>
         <nav class="icons">
-            <a href=""><img src="<?= ASSETS ?>img/vector.svg" alt="">
-            </a><a href="<?= BASE_PATH ?>/connexion">
+            <a href=""><img src="<?= ASSETS ?>img/search.svg" alt="">
+            </a>
+            <a href="<?= BASE_PATH ?>/connexion">
                 <img src="<?= ASSETS ?>img/bonhomme.svg" alt="">
             </a><?php
                 if (isConnect()) {

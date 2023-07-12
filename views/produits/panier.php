@@ -6,11 +6,10 @@ require(VIEWS . 'inc/header.php');
 
 
 <!-- Fil d'Ariane-->
-<div class="Breadcrumb">
-    <h2><a href="<?= BASE_PATH ?>">Accueil ></a> Panier</h2>
+<div class="fil">
+    <h2><a href="<?= BASE_PATH ?>" class="fil_d_ariane">Accueil ><a class="panier"> panier</a></h2>
+    </h2>
 </div>
-
-
 
 <table class="cart">
 

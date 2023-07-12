@@ -2,7 +2,6 @@
 
 require(VIEWS . 'inc/head.php');
 require(VIEWS . 'inc/header.php');
-
 ?>
 
 <!-- PAGE DES ARTICLES -->
