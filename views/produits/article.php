@@ -26,7 +26,14 @@
             <p><?= $article['matière'] ?></p>
             <h2>Prix</h2>
             <p><?= monify($article['prix']) ?></p>
-            <a class="add_to_cart" href="<?= BASE_PATH ?>/add_panier?id=<?= $_GET['id'] ?>">Ajouter</a>
+
+            <a class="add_to_cart" <?php if (isConnect()) { ?> href="<?= BASE_PATH ?>/add_panier?id=<?= $_GET['id'] ?>">Ajouter</a>
+
+        <?php } else { ?>
+
+            <a class="add_to_cart" href="<?= BASE_PATH ?>/connexion?id=<?= $_GET['id'] ?>">Ajouter</a>
+        <?php }  ?>
+
         </div>
     </section>
     <?php

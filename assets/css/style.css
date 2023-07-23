@@ -231,14 +231,19 @@ span {
 
 /* A propos */
 .about {
+    margin-top: 107px;
     padding-left: 15%;
-    max-width: 70%;
-    margin-left: 80px;
+    max-width: 100%;
     margin-bottom: 107px;
+    background-color: var(--grey);
+}
+
+.about p {
+    max-width: 70%;
 }
 
 .about tr td {
-    padding: 20px;
+    padding: 20px 10px 107px 0px;
     font-family: lato;
     font-size: 16px;
 }
@@ -246,7 +251,7 @@ span {
 .about img {
     height: 37vh;
     width: 26vh;
-    margin-top: 197px;
+    margin-top: 107px;
 }
 /*FIN A propos */
 

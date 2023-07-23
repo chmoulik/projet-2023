@@ -13,8 +13,8 @@ require(VIEWS . 'inc/header.php');
         <?php foreach ($articles as $valeur) : ?>
 
             <div class="product_item">
-                <img src="<?= ASSETS ?>img/<?= $valeur['photo'] ?>" alt="">
                 <a href="<?= BASE_PATH ?>/article?id=<?= $valeur['id_article'] ?>">
+                    <img src="<?= ASSETS ?>img/<?= $valeur['photo'] ?>" alt="">
                     <h2> <?= $valeur['titre'] ?> </h2>
                 </a>
                 <h3><?= monify($valeur['prix']) ?></h3>
